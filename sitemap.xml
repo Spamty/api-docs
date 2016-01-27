@@ -1,0 +1,15 @@
+---
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2015 by Philipp & Spamty.eu
+---
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+{% for page in site.pages %}
+{% unless page.url contains '.xml' %}
+<url>
+	<loc>http://dev.spamty.eu{{ page.url }}</loc>
+</url>
+{% endunless %} 
+{% endfor %} 
+
+</urlset>

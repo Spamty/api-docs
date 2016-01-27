@@ -1,0 +1,57 @@
+---
+title: Decryption API version 1
+excerpt: With this API you can get an email address from a Spamty link. Here is the documentation about version 1.
+
+layout: default
+permalink: /decryption/v1.html
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<h1>Generate a Spamty link</h1>
+<p>This is an old <strong>version 1.2</strong>. Go to the <a href="index.html">current one</a> and see what <a href="changelog.html">changed</a>.</p>
+<p>It is only for internal use. You need an additional authentication code (<code>internal</code>).</p>
+
+<h2>URL</h2>
+<p>This API is located at:</p>
+<pre>https://api.spamty.eu/decryption/v1.php</pre>
+
+<h2>Parameters</h2>
+<p>Send a HTTP POST request to the URL with the following POST parameters:</p>
+<p><code>n</code><br>
+The <em>apiN</em> parameter of the encryption request (a number).</p>
+<p><code>m</code><br>
+The <em>apiM</em> parameter of the encryption request (string with a-z A-z 0-9).</p>
+<p><code>k</code><br>
+The <em>apiK</em> parameter of the encryption request (string with a-z A-z 0-9).</p>
+<p><code>internal</code></p>
+<p><code>apiUser</code><br>
+Your class <strong>D</strong> Username.</p>
+<p><code>apiKey</code><br>
+Your class <strong>D</strong> <a href="apikeys.html">API Auth Code</a>.</p>
+<p><code>output</code><br>
+The output type ("xml" or "json" is supported).</p>
+
+<h2>Return Values</h2>
+<p>The request will return a JSON file with the following values:</p>
+<p><code>status</code><br>
+1 for OK and 0 if an error occurred.</p>
+<p><code>statusDetails</code><br>
+A description if there were any errors. Otherwise the value is "ok".</p>
+<p><code>info</code><br>
+The URL where you can get some additional information (this page)</p>
+<p><code>version</code></p>
+<p><code>email</code><br>
+The email address</p>
+<p><code>mailCheck</code><br>
+A crc32b hash of the email address</p>
+
+<h2>Examples</h2>
+<p>You can find some examples on <a href="https://github.com/Spamty/api-examples" target="_blank">our GitHub repository</a>.</p>
+
+<h2>See Also</h2>
+<ul>
+	<li><a href="changelog.html">Changelog</a></li>
+</ul>
+<p>Please report any problems or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+

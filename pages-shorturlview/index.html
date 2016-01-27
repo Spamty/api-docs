@@ -1,0 +1,63 @@
+---
+title: View a short URL - API
+excerpt: With this REST-API you can get the long URL from a 3q3.de short URL.
+
+layout: default
+permalink: /shorturlview/index.html
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+
+<h1>View a short URL</h1>
+<p>With this API method you can get the long URL from a 3q3.de short URL.</p>
+<p>The current version is <strong>2.1</strong> (see what <a href="changelog.html">changed</a>).</p>
+
+<h2>URL</h2>
+<p>The API is located here:</p>
+<pre class="code">https://api.spamty.eu/shorturlview/v2.php</pre>
+<p>You have to use <a href="https.html" title="https">HTTPS</a>.</p>
+
+<h2>Parameters</h2>
+<p>Send a HTTP request with the following POST parameters:</p>
+<p><code>shortUrl</code><br>
+A 3q3.de short URL (like <em><a href="http://3q3.de/demo" target="_blank" rel="nofollow">http://3q3.de/demo</a></em>).</p>
+<p><code>apiUser</code><br>
+Your class <strong>SV</strong> API username.</p>
+<p><code>apiKey</code><br>
+Your class <strong>SV</strong> <a href="apikeys.html" title="keys">API Auth Code</a>.</p>
+<p><code>output</code><br>
+The output type (<em>xml</em> or <em>json</em> is supported, default is <em>json</em>).</p>
+
+<h2>Return Values</h2>
+<p>The request will return a JSON file with the following values:</p>
+<p><code>status</code><br>
+1 for OK and 0 if any error occurred.</p>
+<p><code>statusDetails</code><br>
+A description if there were any errors</p>
+<p><code>info</code><br>
+The URL where you can get some additional information (this page)</p>
+<p><code>version</code><br>
+The version number.</p>
+<p><code>longUrl</code><br>
+The long URL / The Link to the email address.</p>
+
+<p>The response could look like:</p>
+<pre class="code">{
+   "status" : 1,
+   "statusDetails" : "ok",
+   "version" : "2.1",
+   "info" : "http:\/\/dev.spamty.eu\/shorturlview",
+   "longUrl" : "http:\/\/spamty.eu\/mail\/v4\/20\/869656557u8375992c\/"
+}</pre>
+
+<h2>Examples</h2>
+<p>You can find some examples in our <a href="https://github.com/Spamty/api-examples" target="_blank">GitHub repository</a>.</p>
+
+<h2>See Also</h2>
+<ul>
+	<li><a href="index.html">Create a short URL</a></li>
+	<li><a href="changelog.html">Changelog</a></li>
+</ul>
+<p>Please report any issues or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+

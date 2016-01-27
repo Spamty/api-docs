@@ -1,0 +1,52 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Icons -->
+	<link rel="apple-touch-icon" sizes="76x76"   href="//d2a10vcabjxcb4.cloudfront.net/img/touch-icon-76.png"  />
+	<link rel="apple-touch-icon" sizes="120x120" href="//d2a10vcabjxcb4.cloudfront.net/img/touch-icon-120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="//d2a10vcabjxcb4.cloudfront.net/img/touch-icon-152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="//d2a10vcabjxcb4.cloudfront.net/img/touch-icon-180.png" />
+	<link rel="shortcut icon" href="//d2a10vcabjxcb4.cloudfront.net/img/favicon.ico" />
+
+	<!-- default SEO -->
+	<meta name="publisher" content="Spamty" />
+	<meta property="og:site_name" content="Spamty API Documentation" />
+	<meta name="twitter:site" content="@spamty" />
+	<meta name="twitter:creator" content="@philipp_ra" />
+	<meta name="copyright" content="(c) 2016 Spamty.eu" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="keywords" content="" />
+	<meta name="robots" content="index,follow">
+
+	<!-- language SEO -->
+	<meta http-equiv="language" content="en" />
+	<meta property="og:locale" content="en" />
+
+	<!-- custom SEO -->
+	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+	<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+	<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+	<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+	<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />	
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<script type="text/javascript">
+    window.cookieconsent_options = {
+    	"message":"This website uses cookies to ensure you get the best experience on our website",
+    	"dismiss":"Got it!",
+    	"learnMore":"More info",
+    	"link":"http://spamty.eu/privacy.php#cookie-privacy",
+    	"theme":"dark-floating",
+		"domain":"spamty.eu"
+    };
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+<!-- End Cookie Consent plugin -->
+
+</head>

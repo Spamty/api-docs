@@ -1,0 +1,62 @@
+---
+title: Create a short URL - API
+excerpt: With this REST-API you can create a 3q3.de short URL from a Spamty link to an email address.
+
+layout: default
+permalink: /shorturlcreate/index.html
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+
+<h1>Create a short URL</h1>
+<p>With this API method you can create a 3q3.de short URL from a spamty link to an email address.</p>
+<p>The current version is <strong>2.1</strong> (see what <a href="changelog.html" title="Changelog">changed</a>).</p>
+
+<h2>URL</h2>
+<p>Use this URL for your request:</p>
+<pre>https://api.spamty.eu/shorturlcreate/v2.php</pre>
+<p>You have to use <a href="https.html">HTTPS</a>.</p>
+
+<h2>Parameters</h2>
+<p>Send a HTTP POST request with the following parameters:</p>
+<p><code>spamtyLink</code><br>
+A spamty link to an email address (like <em> <a href="http://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a> </em>).</p>
+<p><code>apiUser</code><br>
+Your class <strong>SC</strong> API username.</p>
+<p><code>apiKey</code><br>
+Your class <strong>SC</strong> <a href="apikeys.html">API Auth Code</a>.</p>
+<p><code>output</code><br>
+The output type (<em>json</em> or <em>xml</em> is supported, default is <em>json</em>).</p>
+
+<h2>Return Values</h2>
+<p>The request will return a JSON file with the following parameters:</p>
+<p><code>status</code><br>
+1 for OK and 0 if any error occurred.</p>
+<p><code>statusDetails</code><br>
+A description if there were any errors. Otherwise the value is "ok".</p>
+<p><code>info</code><br>
+The URL where you can get some additional information (this page).</p>
+<p><code>version</code><br>
+The version.</p>
+<p><code>shortUrl</code><br>
+A shortened url (like <em> <a href="http://3q3.de/demo" target="_blank" rel="nofollow">http://3q3.de/demo</a> </em>)</p>
+<p>This could look like:</p>
+<pre>{
+   "status" : 1,
+   "statusDetails" : "ok",
+   "version" : "2.1",
+   "info" : "http:\/\/dev.spamty.eu\/shorturlcreate",
+   "shortUrl" : "http:\/\/3q3.de\/demo"
+}</pre>
+
+<h2>Examples</h2>
+<p>You can find examples in our <a href="https://github.com/Spamty/api-examples" target="_blank">GitHub repository</a>.</p>
+
+<h2>See Also</h2>
+<ul>
+	<li><a href="index.html" title="Shorturlview API">View a short URL</a></li>
+	<li><a href="changelog.html" title="Changelog">Changelog</a></li>
+</ul>
+<p>Please report any issues with this API or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+

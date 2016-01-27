@@ -1,0 +1,18 @@
+---
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+/* TEAM */
+	Developer: Philipp Rackevei
+	From: Germany
+	Contact: http://3q3.de/spamty
+	Twitter: @philipp_ra
+	GitHub: @philipp-r
+
+/* SITE */
+	Language: English
+	Doctype: HTML5
+	Standards: HTML5, CSS3
+	Components: Twitter Bootstrap
+	IDE: TextWrangler, Transmit, GitHub, Jekyll
+	Hosted by: GitHub Pages 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+  <div class="container">
+
+    {% include header.html %}
+
+	<!-- CONTENT -->
+	{{ content }} 
+	<!-- .end CONTENT -->
+        
+    {% include footer.html %}
+
+  </div>
+
+
+{% include piwik.html %}
+
+  </body>
+
+<!--
+	Spamty API Documentation {% if page.title %} | {{ page.title }}{% endif %}
+	Copyright (C) 2015 by Philipp & Spamty.eu
+	
+	API Documentation: http://dev.spamty.eu/
+	Website: http://spamty.eu/
+	On GitHub: https://github.com/Spamty/api-doc
+	Contact: http://3q3.de/spamty
+-->
+
+</html>

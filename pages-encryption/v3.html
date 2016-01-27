@@ -1,0 +1,51 @@
+---
+title: Encryption API version 3
+excerpt: With this API you can create a new Spamty link to protect your email address against spam. Here is the documentation of version 3.
+
+layout: default
+permalink: /encryption/v3.html
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<h1>Generate a Spamty link</h1>
+<p>This is the old documentation for <strong>version 3.1</strong>. Go to the <a href="index.html">latest version</a> and see <a href="changelog.html">what changed</a>.</p>
+<p>This API version is deprecated.</p>
+
+<h2>URL</h2>
+<p>The API is located at:</p>
+<pre>https://api.spamty.eu/encryption/v3.php</pre>
+
+<h2>Parameters</h2>
+<p>You have to pass the following parameters with a HTTP POST request the API:</p>
+<p><code>emailDomainpart</code><br>
+The domain (example.com if email address is test@example.com).</p>
+<p><code>emailLocalpart</code><br>
+The mail name (test if email address is test@example.com).</p>
+<p><code>apiKey</code><br>
+Your class <strong>E</strong> API Key</p>
+<p><code>output</code><br>
+The output type (only <em>json</em> is supported).</p>
+
+<h2>Return Values</h2>
+<p>The request will return a JSON file with the following parameters:</p>
+<p><code>status</code><br>
+Value 1 for OK and 0 if an error occurred.</p>
+<p><code>statusDetails</code></p>
+<p><code>apiN</code></p>
+<p><code>apiM</code></p>
+<p><code>apiK</code></p>
+<p><code>urlPublic</code><br>
+The public decryption url which can be shared.</p>
+<p><code>mailCheck</code><br>
+A hash of the email address</p>
+
+<h2>Examples</h2>
+<p>You can find some example source code in our <a href="https://github.com/Spamty/api-examples" target="_blank">GitHub repository</a>.</p>
+
+<h2>See Also</h2>
+<ul>
+	<li><a href="changelog.html">Changelog</a></li>
+</ul>
+<p>Please report any problems or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+
