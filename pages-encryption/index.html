@@ -3,26 +3,26 @@ title: Encryption API
 excerpt: With this REST-API you can generate a new Spamty link and protect your email address against spam. 
 
 layout: default
-permalink: /encryption/index/
+permalink: /encryption/
 
 # Spamty API Doc (http://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <h1>Generate a Spamty link</h1>
 <p>With this API method you can generate a Spamty link to an email address.</p>
-<p>Current version: <strong>4.1</strong>. See <a href="changelog.html" title="Changelog">what changed</a>.</p>
+<p>Current version: <strong>4.1</strong>. See <a href="{{site.url}}/encryption/changelog/" title="Changelog">what changed</a>.</p>
 
 <h2>URL</h2>
 <p>The API is located at:</p>
 <pre>https://api.spamty.eu/encryption/v4.php</pre>
-<p>You have to use <a href="../https.html">HTTPS</a>, but our SSL certificate is not validated so you might get an error message.</p>
+<p>You have to use <a href="{{site.url}}/https/">HTTPS</a>, but our SSL certificate is not validated so you might get an error message.</p>
 
 <h2>Parameters</h2>
 <p>You have to pass the following parameters with a HTTP POST request the API:</p>
 <p><code>email</code><br>
 The complete email address (test@example.com).</p>
 <p><code>apiUser</code><br>
-Your class <strong>E</strong> <a href="../apikeys.html" title="Keys">API Username</a></p>
+Your class <strong>E</strong> <a href="{{site.url}}/apikeys/" title="Keys">API Username</a></p>
 <p><code>apiKey</code><br>
 Your class <strong>E</strong> API Key</p>
 <p><code>output</code><br>
@@ -53,9 +53,9 @@ A crc32b hash of the email address</p>
 
 <h2>See Also</h2>
 <ul>
-	<li><a href="../decryption/index.html">API Decrypt</a></div></li>
-	<li><a href="../apikeys.html">API Keys</a></div></li>
-	<li><a href="changelog.html">Changelog</a></div></li>
+	<li><a href="{{site.url}}/decryption/">API Decrypt</a></div></li>
+	<li><a href="{{site.url}}/apikeys/">API Keys</a></div></li>
+	<li><a href="{{site.url}}/encryption/changelog/">Changelog</a></div></li>
 </ul>
 <p>Please report any problems or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
 

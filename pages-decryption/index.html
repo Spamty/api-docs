@@ -3,20 +3,20 @@ title: Decryption API
 excerpt: The current version of the Spamty decryption API. With this you can get an email address from a Spamty link.
 
 layout: default
-permalink: /decryption/index/
+permalink: /decryption/
 
 # Spamty API Doc (http://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <h1>Decryption API</h1>
 <p>With this API you can get an email address from a Spamty link.</p>
-<p>Current version: <strong>4.1</strong>. See <a href="changelog.html">what changed</a>.</p>
+<p>Current version: <strong>4.1</strong>. See <a href="{{site.url}}/decryption/changelog/">what changed</a>.</p>
 <p>It is only for internal use. You need an additional authentication code (<code>internal</code>).</p>
 
 <h2>URL</h2>
 <p>The API is located at:</p>
 <pre>https://api.spamty.eu/decryption/v4.php</pre>
-<p>You have to use <a href="../https.html">HTTPS</a>. Please ignore the SSL warning, because our certificate is not validated.</p>
+<p>You have to use <a href="{{site.url}}/https.html">HTTPS</a>. Please ignore the SSL warning, because our certificate is not validated.</p>
 
 <h2>Parameters</h2>
 <p>Send a HTTP POST request to the URL with the following POST parameters:</p>
@@ -28,7 +28,7 @@ The <em>apiK</em> parameter of the encryption request (a string with a-z A-z 0-9
 <p><code>apiUser</code><br>
 Your class <strong>D</strong> Username.</p>
 <p><code>apiKey</code><br>
-Your class <strong>D</strong> <a href="../apikeys.html">API Auth Code</a>.</p>
+Your class <strong>D</strong> <a href="{{site.url}}/apikeys/">API Auth Code</a>.</p>
 <p><code>output</code><br>
 The output type ("json" or "xml" is currently supported, default is "json")</p>
 
@@ -53,8 +53,8 @@ A crc32b hash of the email address</p>
 
 <h2>See Also</h2>
 <ul>
-	<li><a href="../encryption/index.html">API Encrypt</a></li>
-	<li><a href="../apikeys.html">API Keys</a></li>
-	<li><a href="changelog.html">Changelog</a></li>
+	<li><a href="{{site.url}}/encryption/">API Encrypt</a></li>
+	<li><a href="{{site.url}}/apikeys/">API Keys</a></li>
+	<li><a href="{{site.url}}/decryption/changelog/">Changelog</a></li>
 </ul>
 <p>Please report any problems or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
