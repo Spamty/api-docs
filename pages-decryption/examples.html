@@ -1,0 +1,86 @@
+---
+title: Decryption API Examples
+excerpt: 
+
+layout: default
+permalink: /decryption/examples/
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<h1>Decryption: Examples</h1>
+
+<pre class="prettyprint">
+&lt;?php
+// Init a cURL session
+$ch = curl_init();
+// Set the URL
+// You should use the latest API version (http://dev.spamty.eu/version/)
+curl_setopt($ch, CURLOPT_URL, "https://api.spamty.eu/decryption/v4.php");
+// No header in the result
+curl_setopt($ch, CURLOPT_HEADER, 0);
+// Return, do not output result
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+// This has to be a POST request
+curl_setopt($ch, CURLOPT_POST, true);
+// ignore the invalid SSL certificate
+// see: http://dev.spamty.eu/https/
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+// HTTP Authentication
+// this API is only for internal use
+curl_setopt($ch, CURLOPT_USERPWD, "USERNAME:PASSWORD");  
+
+// Define the data to POST
+curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+        // the parameters m, k
+        // example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
+        'm'		=> '20',
+        'k'		=> '869656557u8375992c',
+        // api username and key
+        // see: http://dev.spamty.eu/apikeys/
+        'apiUser'	=> 'd_1234567891',
+        'apiKey'	=> '12345678901234541678901234567890ab',
+        // output type (xml or json)
+        'output'	=> 'json'
+    ));
+
+// Execute and get the response
+$response = curl_exec($ch);
+// close cURL session
+curl_close($ch);
+
+// Decode JSON from response to PHP array
+$data = json_decode($response, true);
+// If you prefer XML have a look at PHP SimpleXML (http://php.net/manual/en/simplexml.examples-basic.php)
+
+
+// check if everything went correct
+/* A successful response would look like
+{
+	"info":"http://dev.spamty.eu/decryption/",
+	"version":"4.1",
+	"status":1,
+	"statusDetails":"ok",
+	"email":"demo@example.com",
+	"mailCheck":"8fc8c981"
+}
+*/
+if( $data['status'] == 1 ){ 
+    // output the email address
+    echo $data['email'];
+}
+// if there were any errors
+/* The response would look like
+{
+	"info":"http://dev.spamty.eu/decryption/",
+	"version":"4.1",
+	"status":0,
+	"statusDetails":"Username or key is not set."
+}
+*/
+else { 
+    // output the error message
+    echo $data['statusDetails'];
+}
+?&gt;
+</pre>

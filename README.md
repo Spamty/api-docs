@@ -10,4 +10,6 @@ Built with Jekyll, GitHub Pages and Twitter Bootstrap
 
 Jekyll Doc: http://jekyllrb.com/docs/home/
 
+Prettify https://github.com/google/code-prettify/
+
 Use PHP with Jekyll: http://stackoverflow.com/questions/19124309/intergrating-static-site-generators-with-php
