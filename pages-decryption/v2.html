@@ -9,12 +9,14 @@ permalink: /decryption/v2/
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <h1>Generate a Spamty link</h1>
-<p>This is the old <strong>version 2.1</strong>. Go to the <a href="{{site.url}}/decryption/">current one</a> and see what <a href="{{site.url}}/decryption/changelog/">changed</a>.</p>
-<p>It is only for internal use. You need an additional authentication (<code>internal</code>).</p>
+<p>This is the old <strong>version 2.2</strong>. Go to the <a href="{{site.url}}/decryption/">current one</a> and see what <a href="{{site.url}}/decryption/changelog/">changed</a>.</p>
 
 <h2>URL</h2>
 <p>This API is located at:</p>
 <pre>https://api.spamty.eu/decryption/v2.php</pre>
+
+<h2>Authentication</h2>
+<p>It is only for internal use. You need an additional authentication with HTTP Basic Auth.</p>
 
 <h2>Parameters</h2>
 <p>Send a HTTP POST request to the URL with the following POST parameters:</p>
@@ -24,7 +26,6 @@ The <em>apiN</em> parameter of the encryption request (a number).</p>
 The <em>apiM</em> parameter of the encryption request (string with a-z A-z 0-9).</p>
 <p><code>k</code><br>
 The <em>apiK</em> parameter of the encryption request (string with a-z A-z 0-9).</p>
-<p><code>internal</code></p>
 <p><code>apiUser</code><br>
 Your class <strong>D</strong> Username.</p>
 <p><code>apiKey</code><br>
