@@ -8,6 +8,7 @@ permalink: /decryption/examples/
 # Spamty API Doc (http://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
+<p>Example code for <a href="{{site.url}}/decryption/">decryption API</a> with <strong>PHP & cURL</strong>.</p>
 <pre class="prettyprint">
 &lt;?php
 // Init a cURL session
@@ -30,17 +31,17 @@ curl_setopt($ch, CURLOPT_USERPWD, "USERNAME:PASSWORD");
 
 // Define the data to POST
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(
-        // the parameters m, k
-        // example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
-        'm'		=> '20',
-        'k'		=> '869656557u8375992c',
-        // api username and key
-        // see: http://dev.spamty.eu/apikeys/
-        'apiUser'	=> 'd_1234567891',
-        'apiKey'	=> '12345678901234541678901234567890ab',
-        // output type (xml or json)
-        'output'	=> 'json'
-    ));
+	// the parameters m, k
+	// example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
+	'm'		=> '20',
+	'k'		=> '869656557u8375992c',
+	// api username and key
+	// see: http://dev.spamty.eu/apikeys/
+	'apiUser'	=> 'd_1234567891',
+	'apiKey'	=> '12345678901234541678901234567890ab',
+	// output type (xml or json)
+	'output'	=> 'json'
+));
 
 // Execute and get the response
 $response = curl_exec($ch);
@@ -59,8 +60,8 @@ $data = json_decode($response, true);
 	"version":"4.1",
 	"status":1,
 	"statusDetails":"ok",
-	"email":"demo@example.com",
-	"mailCheck":"8fc8c981"
+	"email":"demo@spamty.eu",
+	"mailCheck":"4ac3b36c"
 }
 */
 if( $data['status'] == 1 ){ 
