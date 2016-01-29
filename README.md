@@ -6,10 +6,8 @@ This is our API documentation which can be viewed here: http://dev.spamty.eu/
 
 Built with Jekyll, GitHub Pages and Twitter Bootstrap
 
-## Info
+## Links
 
 Jekyll Doc: http://jekyllrb.com/docs/home/
 
 Prettify https://github.com/google/code-prettify/
-
-Use PHP with Jekyll: http://stackoverflow.com/questions/19124309/intergrating-static-site-generators-with-php
