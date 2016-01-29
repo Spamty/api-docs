@@ -26,6 +26,36 @@ Your class <strong>SV</strong> API username.</p>
 Your class <strong>SV</strong> <a href="{{site.url}}/apikeys/" title="keys">API Auth Code</a>.</p>
 <p><code>output</code><br>
 The output type (<em>xml</em> or <em>json</em> is supported, default is <em>json</em>).</p>
+<h3>Example Request</h3>
+<p>Example request with PHP and cURL</p>
+<pre class="prettyprint">
+// Init a cURL session
+$ch = curl_init();
+// Set the URL
+curl_setopt($ch, CURLOPT_URL, "https://api.spamty.eu/shorturlview/v2.php");
+// No header in the result
+curl_setopt($ch, CURLOPT_HEADER, 0);
+// Return, do not echo result
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+// This has to be a POST request
+curl_setopt($ch, CURLOPT_POST, true);
+// ignore the invalid SSL certificate
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+// Define the data to POST
+curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+	// the link
+	'shortUrl'	=> 'http://3q3.de/demo',
+	// api username & key
+	'apiUser'	=> 'sv_931836481',
+	'apiKey'	=> '12345678901234541678901234567890ab',
+	// output type (xml or json)
+	'output'	=> 'json'
+));
+// Execute and get the response
+$response = curl_exec($ch);
+// close cURL session
+curl_close($ch);
+</pre>
 
 <h2>Return Values</h2>
 <p>The request will return a JSON file with the following values:</p>
@@ -39,18 +69,26 @@ The URL where you can get some additional information (this page)</p>
 The version number.</p>
 <p><code>longUrl</code><br>
 The long URL / The Link to the email address.</p>
-
+<h3>Example Response</h3>
 <p>The response could look like:</p>
-<pre class="code">{
+<h4>JSON</h4>
+<pre class="prettyprint">{
    "status" : 1,
    "statusDetails" : "ok",
    "version" : "2.1",
-   "info" : "http:\/\/dev.spamty.eu\/shorturlview",
-   "longUrl" : "http:\/\/spamty.eu\/mail\/v4\/20\/869656557u8375992c\/"
+   "info" : "http://dev.spamty.eu/shorturlview",
+   "longUrl" : "http://spamty.eu/mail/v4/20/869656557u8375992c/"
 }</pre>
-
-<h2>Examples</h2>
-<p>You can find some examples in our <a href="https://github.com/Spamty/api-examples" target="_blank">GitHub repository</a>.</p>
+<h4>XML</h4>
+<pre class="prettyprint">
+&lt;spamty&gt;
+  &lt;info&gt;http://dev.spamty.eu/shorturlview/&lt;/info&gt;
+  &lt;version&gt;2.1&lt;/version&gt;
+  &lt;status&gt;1&lt;/status&gt;
+  &lt;statusDetails&gt;ok&lt;/statusDetails&gt;
+  &lt;longUrl&gt;http://spamty.eu/mail/v4/20/869656557u8375992c/&lt;/longUrl&gt;
+&lt;/spamty&gt;
+</pre>
 
 <h2>See Also</h2>
 <ul>
