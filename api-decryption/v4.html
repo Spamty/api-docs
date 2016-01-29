@@ -18,6 +18,10 @@ permalink: /decryption/
 
 <h2>Authentication</h2>
 <p>It is only for internal use. You need an additional authentication with HTTP Basic Auth.</p>
+<pre class="prettyprint">
+// HTTP Authentication
+curl_setopt($ch, CURLOPT_USERPWD, "USERNAME:PASSWORD");
+</pre>
 
 <h2>Parameters</h2>
 <p>Send a HTTP POST request to the URL with the following POST parameters:</p>
@@ -31,6 +35,21 @@ Your class <strong>D</strong> Username.</p>
 Your class <strong>D</strong> <a href="{{site.url}}/apikeys/">API Auth Code</a>.</p>
 <p><code>output</code><br>
 The output type ("json" or "xml" is currently supported, default is "json")</p>
+<h3>Example</h3>
+<pre class="prettyprint">
+$data = array(
+	// the parameters m, k
+	// example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
+	'm'		=> '20',
+	'k'		=> '869656557u8375992c',
+	// api username and key
+	// see: http://dev.spamty.eu/apikeys/
+	'apiUser'	=> 'd_1234567891',
+	'apiKey'	=> '12345678901234541678901234567890ab',
+	// output type (xml or json)
+	'output'	=> 'json'
+);
+</pre>
 
 <h2>Return Values</h2>
 <p>The request will return a JSON file with the following values:</p>
@@ -80,7 +99,7 @@ A crc32b hash of the email address</p>
 </pre>
 
 <h2>Examples</h2>
-<p>You can find some example source code in our <a href="https://github.com/Spamty/api-examples/tree/master/decryption">GitHub repository</a>.</p>
+<p>You can find a <a href="{{site.url}}/decryption/examples/">complete example here</a>.</p>
 
 
 <h2>See Also</h2>
