@@ -46,6 +46,31 @@ The version number.</p>
 The email address</p>
 <p><code>mailCheck</code><br>
 A crc32b hash of the email address</p>
+<h3>Examples</h3>
+<h4>JSON - successful</h4>
+<pre class="prettyprint">
+{
+  "info": "http://dev.spamty.eu/decryption/",
+  "version": "4.2",
+  "status": 1,
+  "statusDetails": "ok",
+  "email": "demo@spamty.eu",
+  "mailCheck": "4ac3b36c"
+}
+</pre>
+<h4>JSON - with error</h4>
+<pre class="prettyprint">
+{
+  "info": "http://dev.spamty.eu/decryption/",
+  "version": "4.2",
+  "status": 0,
+  "statusDetails": "Your API Key is wrong or invalid."
+}
+</pre>
+<h4>XML</h4>
+<pre class="prettyprint">
+
+</pre>
 
 <h2>Examples</h2>
 <p>You can find some example source code in our <a href="https://github.com/Spamty/api-examples/tree/master/decryption">GitHub repository</a>.</p>
