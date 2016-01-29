@@ -8,13 +8,18 @@ permalink: /https/
 # Spamty API Doc (http://dev.spamty.eu/)
 # Copyright (C) 2015 by Philipp & Spamty.eu
 ---
-<h1>HTTPS</h1>
 <p>You have to use use HTTPS for your API requests.</p>
 <p>The domain api.spamty.eu has no verified SSL-certificate so you may get an error message.</p>
 
 <h2>Fix</h2>
-<p>If you are using PHP with curl you can add this to ignore the invalid certificate:</p>
-<pre>
+<h3>PHP with cURL</h3>
+<p>If you are using PHP with cURL you can add this line to ignore the invalid certificate:</p>
+<pre class="prettyprint">
 // ignore the invalid SSL certificate
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+</pre>
+<h3>cURL</h3>
+<p>Add <code>-k</code> or <code>--insecure</code>.</p>
+<pre class="prettyprint">
+curl -k https://api.spamty.eu/version.php
 </pre>
