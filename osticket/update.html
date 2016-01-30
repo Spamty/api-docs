@@ -1,0 +1,21 @@
+---
+title: Updating osTicket
+
+layout: internal
+permalink: /osticket/update/
+
+# Spamty API Doc (http://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<h2>Update Instructions</h2>
+<p>See <a href="http://osticket.com/wiki/Upgrade_and_Migration">osticket wiki</a></p>
+
+<h2>Changed files</h2>
+<p>These files were changed. Backup when updating osTicket and then restore.</p>
+<ul>
+	<li>/include/client/header.inc.php &nbsp;</li>
+	<li>/include/client/footer.inc.php &nbsp;</li>
+	<li>/scp/images/login-background.jpg &nbsp;<em>custom background picture</em> </li>
+	<li>/api/http.php &nbsp;<em>added user API (see&nbsp;<a href="https://github.com/osTicket/osTicket-1.8/pull/2132/files">https://github.com/osTicket/osTicket-1.8/pull/2132/files</a> and <a href="http://help.spamty.eu/scp/tickets.php?id=65">http://help.spamty.eu/scp/tickets.php?id=65</a>)</em> </li>
+	<li>/include/api.users.php<em>&nbsp; added user API</em> </li>
+</ul>
