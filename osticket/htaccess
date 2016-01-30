@@ -5,6 +5,4 @@ permalink: /osticket/.htaccess
 AuthName "INTERNAL DOC" 
 AuthType Basic 
 AuthUserFile /home/dpgfnbmi/public_html/developer/.htpasswd 
-<Files *>
-	require valid-user
-</Files>
+require valid-user

@@ -4,7 +4,5 @@ permalink: /apikeys/generator/.htaccess
 ---
 AuthName "INTERNAL DOC" 
 AuthType Basic 
-AuthUserFile /home/dpgfnbmi/public_html/developer/osticket/.htpasswd 
-<Files *>
-	require valid-user
-</Files>
+AuthUserFile /home/dpgfnbmi/public_html/developer/.htpasswd 
+require valid-user
