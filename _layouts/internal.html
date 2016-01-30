@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+<body>
+
+{% include navbar.html %}
+<div class="container">
+
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			{% include sidebar.html %}
+		</div>
+    	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h1>{{ page.title }}</h1>
+			<hr />
+			{{ content }} 
+    		{% include footer.html %}
+    		<p class="text-center">INTERNAL DOC</p>
+		</div>
+	</div>
+
+</div>
+
+</body>
+
+<!--
+	Spamty API Documentation {% if page.title %} | {{ page.title }}{% endif %}
+	Copyright (C) 2016 by Philipp & Spamty.eu
+	
+	API Documentation: http://dev.spamty.eu/
+	Website: http://spamty.eu/
+	Contact: http://3q3.de/spamty
+-->
+
+</html>
