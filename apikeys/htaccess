@@ -1,0 +1,10 @@
+---
+permalink: /apikeys/generator/.htaccess
+# see http://newbieonruby.com/jekyll-include-htaccess/
+---
+AuthName "INTERNAL DOC" 
+AuthType Basic 
+AuthUserFile /home/dpgfnbmi/public_html/developer/osticket/.htpasswd 
+<Files *>
+	require valid-user
+</Files>
