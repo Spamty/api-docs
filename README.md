@@ -2,7 +2,7 @@
 
 This is our API documentation which can be viewed here: http://dev.spamty.eu/
 
-For detailed info about Jekyll see */docs* folder and http://jekyllrb.com/docs/home/ 
+For detailed info see */docs* folder and the Jekyll documentation http://jekyllrb.com/docs/home/ 
 
 ## Notes
 
