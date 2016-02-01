@@ -8,5 +8,7 @@ Build the jekyll site (in folder *_site*)
 	
     jekyll build --watch
 
-Publish the website by uploading the contents of *_site* folder on FTP. 
-~~Or upload the complete Jekyll install on GitHub Pages.~~
+# Publish on server
+
+When everything is ok: `add` and `commit` changes. Then push to Git repository. 
+The site will be build on the server with Jekyll and this script: <https://git.pr.cx/spamty/build-sites>
