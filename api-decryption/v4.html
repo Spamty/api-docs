@@ -5,7 +5,7 @@ excerpt: The current version of the Spamty decryption API. With this you can get
 layout: default
 permalink: /decryption/
 
-# Spamty API Doc (http://dev.spamty.eu/)
+# Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <p>With this API you can get an email address from a Spamty link.</p>
@@ -26,9 +26,9 @@ curl_setopt($ch, CURLOPT_USERPWD, "USERNAME:PASSWORD");
 <h2>Parameters</h2>
 <p>Send a HTTP POST request to the URL with the following POST parameters:</p>
 <p><code>m</code><br>
-The <em>apiM</em> parameter of the encryption request (a number). For example: <a href="http://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/<strong>20</strong>/869656557u8375992c/</a></p>
+The <em>apiM</em> parameter of the encryption request (a number). For example: <a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">https://spamty.eu/mail/v4/<strong>20</strong>/869656557u8375992c/</a></p>
 <p><code>k</code><br>
-The <em>apiK</em> parameter of the encryption request (a string with a-z A-z 0-9) For example: <a href="http://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/<strong>869656557u8375992c</strong>/</a></p>
+The <em>apiK</em> parameter of the encryption request (a string with a-z A-z 0-9) For example: <a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">https://spamty.eu/mail/v4/20/<strong>869656557u8375992c</strong>/</a></p>
 <p><code>apiUser</code><br>
 Your class <strong>D</strong> Username.</p>
 <p><code>apiKey</code><br>
@@ -39,11 +39,11 @@ The output type ("json" or "xml" is currently supported, default is "json")</p>
 <pre class="prettyprint">
 $data = array(
 	// the parameters m, k
-	// example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
+	// example link: https://spamty.eu/mail/v4/20/869656557u8375992c/
 	'm'		=> '20',
 	'k'		=> '869656557u8375992c',
 	// api username and key
-	// see: http://dev.spamty.eu/apikeys/
+	// see: https://dev.spamty.eu/apikeys/
 	'apiUser'	=> 'd_1234567891',
 	'apiKey'	=> '12345678901234541678901234567890ab',
 	// output type (xml or json)
@@ -69,7 +69,7 @@ A crc32b hash of the email address</p>
 <h4>JSON - successful</h4>
 <pre class="prettyprint">
 {
-  "info": "http://dev.spamty.eu/decryption/",
+  "info": "https://dev.spamty.eu/decryption/",
   "version": "4.2",
   "status": 1,
   "statusDetails": "ok",
@@ -80,7 +80,7 @@ A crc32b hash of the email address</p>
 <h4>JSON - with error</h4>
 <pre class="prettyprint">
 {
-  "info": "http://dev.spamty.eu/decryption/",
+  "info": "https://dev.spamty.eu/decryption/",
   "version": "4.2",
   "status": 0,
   "statusDetails": "Your API Key is wrong or invalid."
@@ -89,7 +89,7 @@ A crc32b hash of the email address</p>
 <h4>XML - successful</h4>
 <pre class="prettyprint">
 &lt;spamty&gt;
-  &lt;info&gt;http://dev.spamty.eu/decryption/&lt;/info&gt;
+  &lt;info&gt;https://dev.spamty.eu/decryption/&lt;/info&gt;
   &lt;version&gt;4.2&lt;/version&gt;
   &lt;status&gt;1&lt;/status&gt;
   &lt;statusDetails&gt;ok&lt;/statusDetails&gt;
@@ -108,4 +108,4 @@ A crc32b hash of the email address</p>
 	<li><a href="{{site.url}}/apikeys/">API Keys</a></li>
 	<li><a href="{{site.url}}/decryption/changelog/">Changelog</a></li>
 </ul>
-<p>Please report any problems or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+<p>Please report any problems or feature requests at our <a href="https://spamty.eu/contact-dev.php">via this form</a>.</p>

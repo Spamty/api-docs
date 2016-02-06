@@ -5,7 +5,7 @@ excerpt:
 layout: default
 permalink: /decryption/examples/
 
-# Spamty API Doc (http://dev.spamty.eu/)
+# Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <p>Example code for <a href="{{site.url}}/decryption/">decryption API</a> with <strong>PHP & cURL</strong>.</p>
@@ -14,7 +14,7 @@ permalink: /decryption/examples/
 // Init a cURL session
 $ch = curl_init();
 // Set the URL
-// You should use the latest API version (http://dev.spamty.eu/version/)
+// You should use the latest API version (https://dev.spamty.eu/version/)
 curl_setopt($ch, CURLOPT_URL, "https://api.spamty.eu/decryption/v4.php");
 // No header in the result
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -23,7 +23,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // This has to be a POST request
 curl_setopt($ch, CURLOPT_POST, true);
 // ignore the invalid SSL certificate
-// see: http://dev.spamty.eu/https/
+// see: https://dev.spamty.eu/https/
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
 // HTTP Authentication
 // this API is only for internal use
@@ -32,11 +32,11 @@ curl_setopt($ch, CURLOPT_USERPWD, "USERNAME:PASSWORD");
 // Define the data to POST
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(
 	// the parameters m, k
-	// example link: http://spamty.eu/mail/v4/20/869656557u8375992c/
+	// example link: https://spamty.eu/mail/v4/20/869656557u8375992c/
 	'm'		=> '20',
 	'k'		=> '869656557u8375992c',
 	// api username and key
-	// see: http://dev.spamty.eu/apikeys/
+	// see: https://dev.spamty.eu/apikeys/
 	'apiUser'	=> 'd_1234567891',
 	'apiKey'	=> '12345678901234541678901234567890ab',
 	// output type (xml or json)
@@ -56,7 +56,7 @@ $data = json_decode($response, true);
 // check if everything went correct
 /* A successful response would look like
 {
-	"info":"http://dev.spamty.eu/decryption/",
+	"info":"https://dev.spamty.eu/decryption/",
 	"version":"4.1",
 	"status":1,
 	"statusDetails":"ok",
@@ -71,7 +71,7 @@ if( $data['status'] == 1 ){
 // if there were any errors
 /* The response would look like
 {
-	"info":"http://dev.spamty.eu/decryption/",
+	"info":"https://dev.spamty.eu/decryption/",
 	"version":"4.1",
 	"status":0,
 	"statusDetails":"Username or key is not set."

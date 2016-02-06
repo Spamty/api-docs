@@ -5,7 +5,7 @@ excerpt: With this REST-API you can create a 3q3.de short URL from a Spamty link
 layout: default
 permalink: /shorturlcreate/
 
-# Spamty API Doc (http://dev.spamty.eu/)
+# Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 <p>With this API method you can create a 3q3.de short URL from a spamty link to an email address.</p>
@@ -19,7 +19,7 @@ permalink: /shorturlcreate/
 <h2>Parameters</h2>
 <p>Send a HTTP POST request with the following parameters:</p>
 <p><code>spamtyLink</code><br>
-A spamty link to an email address (like <em> <a href="http://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a> </em>).</p>
+A spamty link to an email address (like <em> <a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a> </em>).</p>
 <p><code>apiUser</code><br>
 Your class <strong>SC</strong> API username.</p>
 <p><code>apiKey</code><br>
@@ -44,7 +44,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 // Define the data to POST
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(
 	// the link
-	'spamtyLink'    => 'http://spamty.eu/mail/v4/20/869656557u8375992c/',
+	'spamtyLink'    => 'https://spamty.eu/mail/v4/20/869656557u8375992c/',
 	// api username & key
 	'apiUser'       => 'sc_931836481',
 	'apiKey'        => '12345678901234541678901234567890ab',
@@ -76,13 +76,13 @@ A shortened url (like <em> <a href="http://3q3.de/demo" target="_blank" rel="nof
    "status" : 1,
    "statusDetails" : "ok",
    "version" : "2.1",
-   "info" : "http://dev.spamty.eu/shorturlcreate/",
+   "info" : "https://dev.spamty.eu/shorturlcreate/",
    "shortUrl" : "http://3q3.de/demo"
 }</pre>
 <h4>XML</h4>
 <pre class="prettyprint">
 &lt;spamty&gt;
-  &lt;info&gt;http://dev.spamty.eu/shorturlcreate/&lt;/info&gt;
+  &lt;info&gt;https://dev.spamty.eu/shorturlcreate/&lt;/info&gt;
   &lt;version&gt;2.1&lt;/version&gt;
   &lt;status&gt;1&lt;/status&gt;
   &lt;statusDetails&gt;ok&lt;/statusDetails&gt;
@@ -95,5 +95,5 @@ A shortened url (like <em> <a href="http://3q3.de/demo" target="_blank" rel="nof
 	<li><a href="{{site.url}}/shorturlview/" title="Shorturlview API">View a short URL</a></li>
 	<li><a href="{{site.url}}/changelog/" title="Changelog">Changelog</a></li>
 </ul>
-<p>Please report any issues with this API or feature requests at our <a href="http://spamty.eu/contact-dev.php">via this form</a>.</p>
+<p>Please report any issues with this API or feature requests at our <a href="https://spamty.eu/contact-dev.php">via this form</a>.</p>
 

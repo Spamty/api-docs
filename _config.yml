@@ -1,7 +1,7 @@
 # Jekyll Config
-# see http://jekyllrb.com/docs/configuration/
+# see https://jekyllrb.com/docs/configuration/
 #
-# Spamty API Doc (http://dev.spamty.eu/)
+# Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 
 
@@ -9,7 +9,7 @@
 title: Spamty API Documentation
 description: "This is the detailed documentation of the RESTful Spamty.eu API."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://dev.spamty.eu" # the base hostname & protocol for your site
+url: "https://dev.spamty.eu" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown

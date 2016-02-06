@@ -60,7 +60,7 @@ The URL of the API
 The example URL above would return:
 
     <spamty>
-    	<info>http://dev.spamty.eu/decryption/</info>
+    	<info>https://dev.spamty.eu/decryption/</info>
     	<url>https://api.spamty.eu/decryption/v4.php</url>
     	<version>4.2</version>
     	<status>1</status>
@@ -70,4 +70,4 @@ The example URL above would return:
 
 ## See Also
 
-Please report any problems or feature requests [via this form](http://spamty.eu/contact-dev.php).
+Please report any problems or feature requests [via this form](https://spamty.eu/contact-dev.php).
