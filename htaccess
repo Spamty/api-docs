@@ -2,4 +2,5 @@
 permalink: .htaccess
 ---
 # No Indexing
-Options -Indexes
+# Returns Error 500 on new Server
+# Options -Indexes
