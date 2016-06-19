@@ -6,4 +6,4 @@ For detailed info see */docs* folder and the Jekyll documentation https://jekyll
 
 ## Notes
 
-Built with  [Jekyll](https://jekyllrb.com/), [Twitter Bootstrap](https://getbootstrap.com/) and [Prettify](https://github.com/google/code-prettify/).
+Built with  [Jekyll](https://jekyllrb.com/), [Twitter Bootstrap](https://getbootstrap.com/) and [Prettify](https://github.com/google/code-prettify/)
