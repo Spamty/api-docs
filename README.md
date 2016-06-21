@@ -8,7 +8,7 @@ For detailed info about Jekyll see */docs* folder and <https://jekyllrb.com/docs
 
 ## git push
 
-Push commits to GitHub **and** our own git server!
+Push commits **only** to GitHub. All changes are fetched from GitHub to our own git server for reference.
 
 ## Issues & Bugs
 
