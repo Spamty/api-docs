@@ -3,4 +3,4 @@
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
 User-agent: *
-Sitemap: http://blog.spamty.eu/sitemap.xml
+Sitemap: https://dev.spamty.eu/sitemap.xml
