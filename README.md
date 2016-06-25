@@ -10,7 +10,7 @@ For detailed info about Jekyll see */docs* folder and <https://jekyllrb.com/docs
 
 ## Issues & Bugs
 
-Report issues and bugs in our internal bugtracker: <https://bugs.spamty.eu/index.php?project=api-docs&page=issues>. Authenticate with username: `public` and password: `bugs`.
+Report issues and bugs in our internal bugtracker: <https://bugs.spamty.eu/index.php?project=api-docs&page=issues>. 
 
 Or send us an email: <https://3q3.de/spamty>
 
