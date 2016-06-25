@@ -10,5 +10,4 @@ Build the jekyll site (in folder *_site*)
 
 # Publish on server
 
-When everything is ok: `add` and `commit` changes. Then push to Git repository. 
-The site will be build on the server with Jekyll and "build-sites".
+When everything is ok: `add` and `commit` changes. Then push to GitHub repository. 

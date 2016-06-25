@@ -1,7 +1,5 @@
 # Markdown Cheatsheet
 
-https://gist.github.com/philipp-r/8fa32482e9a73003acc7
-
 ## Headings
 
     # H1
