@@ -1,5 +1,7 @@
 # Spamty API Docs
 
+[![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
+
 This is our API documentation which can be viewed here: <https://dev.spamty.eu/>
 
 ## Documentation
