@@ -3,6 +3,8 @@ title: Get API Version
 excerpt: With this API you can see what is the latest version of any Spamty API.
 layout: default
 permalink: /version/
+
+gh-file: api-version/version.md
 ---
 With this API you can see what is the latest version of any Spamty API.
 
