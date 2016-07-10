@@ -8,8 +8,8 @@ permalink: /https/
 gh-file: pages-misc/https.md
 
 ---
-You have to use use HTTPS for your API requests.
-The domain api.spamty.eu has a SSL-certificate from *Let's Encrypt*. 
+You have to use use HTTPS for your API requests. For api.spamty.eu all HTTP requests are redirected to HTTPS but api-raw.spamty.eu does only work with HTTPS (there is no redirection).
+The domain api.spamty.eu has a SSL-certificate from *CloudFlare*. api-raw.spamty.eu has a SSL-certificate from *Let's Encrypt*.
 
 ## Fix
 
