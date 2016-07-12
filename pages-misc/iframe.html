@@ -1,0 +1,55 @@
+---
+title: Email address and Captcha in iframe
+excerpt: You can use an iframe instead of a link to Spamty to display and protect your email address.
+
+layout: default
+permalink: /iframe/
+
+gh-file: pages-misc/iframe.html
+
+# Spamty API Doc (https://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<p>Spamty <a href="https://spamty.eu/premium.php">Premium users</a> (premium subscription is not publicly available yet - the iframe is available for every user until the premium subscription is buyable) can use an iframe to display the Captcha and the email address directly on their own website. You don't need to redirect your users with a link to our website.</p>
+<p><a class="btn btn-success" href="{{site.url}}/iframe/demo/" target="_blank" role="button">Live Demo</a></p>
+
+<h2>How it works</h2>
+
+<p>First you need to <a href="https://spamty.eu/encryption.php">create your Spamty link</a>. You link will look like:
+<pre>https://spamty.eu/mail/v4/20/869656557u8375992c/</pre></p>
+<p>Open this prettified URL in your browser and it will redirect you to the raw URL - similar to:
+<pre>https://spamty.eu/mail.php?version=v4&email=20&key=869656557u8375992c</pre></p>
+<p>The last step is to repalce <code>mail.php</code> with <code>mail-frame.php</code>. You can test your URL now. It should show the page which will be displayed as iframe in the next step.
+<pre>https://spamty.eu/mail-frame.php?version=v4&email=20&key=869656557u8375992c</pre></p>
+
+<h2>Building an iframe</h2>
+
+<p>The following code is our iframe. Where you should replace <code>MAIL_FRAME_URL</code> with the URL from above. You can also adjust the message that will be displayed if a browser doesn't support iframes.</p>
+<pre class="prettyprint">
+&lt;iframe
+   src="MAIL_FRAME_URL"
+   width="100%" 
+   height="300" 
+   name="Spamty email address"
+   sandbox="allow-scripts allow-popups allow-forms"&gt;
+   &lt;p&gt;iframes do not work in your browser. You can &lt;a href="MAIL_FRAME_URL" target="_blank" title="Spamty" rel="nofollow"&gt;find my email address here&lt;/a&gt;.&lt;/p&gt;
+&lt;/iframe&gt;
+</pre>
+<p>The sandbox attribute values <code>allow-scripts</code> and <code>allow-popups</code> are required to display a help text when the users clicks on the info link. <code>allow-forms</code> is required to process the captcha form.</p>
+
+<h2>Customization</h2>
+
+<h3>Language</h3>
+<p>You can change the language of your form by appending <code>&lang=CC</code> to your URL. For example French with:
+<pre>https://spamty.eu/mail-frame.php?version=v4&email=20&key=869656557u8375992c&lang=fr</pre></p>
+<p>You can use: <ul>
+	<li><code>&lang=ar</code> for Arabic (experimental)</li>
+	<li><code>&lang=de</code> for German</li>
+	<li><code>&lang=en</code> for English (default)</li>
+	<li><code>&lang=es</code> for Spanish (incomplete)</li>
+	<li><code>&lang=fr</code> for French</li>
+	<li><code>&lang=zh</code> for Chinese (incomplete)</li>
+</ul></p>
+
+<h3>Color</h3>
+<p>An option to change the background and text color is coming soon.</p>
