@@ -1,17 +1,17 @@
 ---
-title: View a short URL - YOURLS' API
-excerpt: With this API provided by YOURLS you can get the long URL from a 3q3.de short URL.
+title: Create a short URL - YOURLS' API
+excerpt: With this API provided by YOURLS you can create a 3q3.de short URL from a Spamty link to an email address.
 
 layout: default
-permalink: /shorturlview/
+permalink: /shorturl/
 
-gh-file: api-shorturlview/yourls.html
+gh-file: api-shorturl/yourls.html
 
 # Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
-<p>With this API method you can get the long URL from a 3q3.de short URL.</p>
-<p>We are using <a href="http://yourls.org/#API">YOURLS</a> <strong>version 1.7.1</strong> with some adaptions. See <a href="{{site.url}}/shorturlview/changelog/" title="Changelog">what changed</a>.</p>
+<p>With this API method you can create a short URL or view the long URL from a shortened Spamty link with 3q3.de.</p>
+<p>We are using <a href="http://yourls.org/#API">YOURLS</a> <strong>version 1.7.1</strong> with some adaptions. See <a href="{{site.url}}/shorturl/changelog/" title="Changelog">what changed</a>.</p>
 
 <h2>URL</h2>
 <p>Use this URL for your HTTP POST request (we dropped support for GET):</p>
@@ -26,15 +26,37 @@ This is the API key <b>class S</b> that <a href="{{site.url}}/apikeys/" title="A
 <p><code>timestamp</code><br>
 An API key <b>class S</b> is valid for a limited time (currently for 6 months). You have to pass this parameter with the timesstamp you got from us with your API key. See <a href="https://github.com/YOURLS/YOURLS/wiki/PasswordlessAPI#usage-of-a-time-limited-signature-token">Passwordless API requests</a>.</p>
 <p><code>action</code><br>
-Use the action <em>expand</em> to get long URL of a shorturl.</p>
-<p><code>shorturl</code><br>
-A 3q3.de short URL (like <em><a href="http://3q3.de/demo" target="_blank" rel="nofollow">http://3q3.de/demo</a></em> can also be '<em>demo</em>').</p>
+<tt>"shorturl"</tt> (get short URL for a link) or <tt>"expand"</tt> (get long URL of a shorturl)</p>
+<p><code>url</code> (for action = "shorturl")<br>
+The Spamty link to shorten (like <em><a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a></em>).</p>
+<p><code>keyword</code> and <code>title</code> parameters (for action = "shorturl") are not supported.</p>
+<p><code>shorturl</code> (for action = "expand")<br>
+the short URL to expand (can be either 'demo' or 'http://3q3.de/demo').</p>
 <p><code>output</code><br>
-Either <em>json</em> or <em>xml</em></p>
-<p><code>keyword</code> and <code>title</code> parameters are not supported.</p>
+The output format: either <tt>"jsonp"</tt>, <tt>"json"</tt>, <tt>"xml"</tt> or <tt>"simple"</tt>.</p>
 
-<h3>Example Request</h3>
+<h2>Example Request</h2>
+<h3>JavaScript</h3>
 <p>Example request with Javascript (using jQuery) to shorten a URL</p>
+<pre class="prettyprint">
+var api_url  = 'https://3q3.de/yourls-api.php';
+var response = $.post( api_url, {
+    signature: "YOUR_SECRET_KEY",
+    timestamp: "YOUR_TIMESTAMP",
+    action:   "shorturl",
+    format:   "json",
+    url:      "http://spamty.eu/mail/v4/20/869656557u8375992c/"
+    },
+    // callback function that will deal with the server response
+    function( data) {
+        // for instance, return short URL
+        return data.shorturl;
+    }
+);
+</pre>
+
+<h3>PHP</h3>
+<p>Example request with PHP to view the long URL from a shortened one.</p>
 <pre class="prettyprint">
 &lt?php
 $api_url =  'http://3q3.de/yourls-api.php';
@@ -46,10 +68,11 @@ curl_setopt($ch, CURLOPT_HEADER, 0);            // No header in the result
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return, do not echo result
 curl_setopt($ch, CURLOPT_POST, 1);              // This is a POST request
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(     // Data to POST
-        'shorturl' => 'demo',
+        'shorturl' => 'http://3q3.de/demo',
         'format'   => 'json',
         'action'   => 'expand',
-        'secret'   => 'YOUR_SECRET_HERE',
+        'signature'   => 'YOUR_SECRET_HERE',
+        'timestamp'   => 'YOUR_TIMESTAMP',
     ));
 
 // Fetch and return content
@@ -62,9 +85,10 @@ echo $data->longurl;
 </pre>
 
 
-
 <h2>Return Values</h2>
-<p>The request will return a JSON or XML response with the following data:</p>
+<p>The request will return a response with the following data: (the returned values from YOURLS seem to be not very consistent. There is already an <a href="https://github.com/YOURLS/YOURLS/issues/1277">issue on GitHub for that</a>.)</p>
+<p><code>status</code><br>
+If successful this should be "success".</p>
 <p><code>errorCode</code><br>
 A numeric code if an error occurred. This is should be the same as the HTTP status code.</p>
 <p><code>statusCode</code><br>
@@ -107,7 +131,8 @@ The Spamty link (like <em> <a href="http://spamty.eu/mail/v4/20/869656557u837599
 
 <h2>See Also</h2>
 <ul>
-	<li><a href="{{site.url}}/shorturlview/" title="Shorturlview API">View a short URL</a></li>
+	<li>official <a href="http://yourls.org/#API" title="YOURLS API">YOURLS' API docs</a></li>
+	<li><a href="https://github.com/YOURLS/YOURLS" title="GitHub">YOURLS on GitHub</a></li>
 	<li><a href="{{site.url}}/shorturlcreate/changelog/" title="Changelog">Changelog</a></li>
 </ul>
 <p>Please report any issues with this API or feature requests at our <a href="https://spamty.eu/contact-dev.php">via this form</a>.</p>

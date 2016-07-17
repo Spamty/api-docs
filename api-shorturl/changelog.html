@@ -3,26 +3,26 @@ title: Create a short URL - API Changelog
 excerpt: Changes of the REST-API with which you can create a new 3q3.de short URL.
 
 layout: default
-permalink: /shorturlcreate/changelog/
+permalink: /shorturl/changelog/
 
-gh-file: api-shorturlcreate/changelog.html
+gh-file: api-shorturl/changelog.html
 
 # Spamty API Doc (https://dev.spamty.eu/)
 # Copyright (C) 2016 by Philipp & Spamty.eu
 ---
-<p><a href="{{site.url}}/shorturlcreate/">Current version</a></p>
-<p>Changes of the <a href="{{site.url}}/shorturlcreate/">Create a Short URL API</a>.</p>
+<p>This are the changes of the Short URL API.<br>
+Go to <a href="{{site.url}}/shorturl/">Current version</a>.</p>
 
 <h3>1.7.1</h3>
 <p>Introducing the original YOURLS' API for 3q3.de.</p>
 <ul>
+	<li>No HTTP GET requests</li>
 	<li>Without the actions "url-stats" (get stats about one short URL), "stats" (get stats about your links) and "db-stats" (get global link and click count)</li>
-	<li>No support for "jsonp" or "simple" format</li>
 </ul>
 
 
 <h2>Spamty-YOURLS API</h3>
-<p>We previously used an <a href="{{site.url}}/shorturlcreate/version-spamty/">adapted version of the YOURLS API</a> which was publicly available. These versions are now deprecated.</p>
+<p>We previously used an adapted version of the YOURLS API <a href="{{site.url}}/shorturl/shorturlcreate/">to create</a> and <a href="{{site.url}}/shorturl/shorturlcreate/">view shortened URLs</a> which was publicly available. These versions are now deprecated.</p>
 
 <h3>v2.1</h3>
 <ul>
