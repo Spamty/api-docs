@@ -1,0 +1,112 @@
+---
+title: Create a short URL - YOURLS' API
+excerpt: With this API provided by YOURLS you can create a 3q3.de short URL from a Spamty link to an email address.
+
+layout: default
+permalink: /shorturlcreate/
+
+gh-file: api-shorturlcreate/yourls.html
+
+# Spamty API Doc (https://dev.spamty.eu/)
+# Copyright (C) 2016 by Philipp & Spamty.eu
+---
+<p>With this API method you can create a short URL from a spamty link with 3q3.de.</p>
+<p>We are using <a href="http://yourls.org/#API">YOURLS</a> <strong>version 1.7.1</strong> with some adaptions. See <a href="{{site.url}}/shorturlcreate/changelog/" title="Changelog">what changed</a>.</p>
+
+<h2>URL</h2>
+<p>Use this URL for your HTTP POST request (we dropped support for GET):</p>
+<pre>https://3q3.de/yourls-api.php</pre>
+<p>You are recommended to use <a href="{{site.url}}/https/">HTTPS</a>.</p>
+
+
+<h2>Parameters</h2>
+<p>Send your HTTP POST request with these parameters:</p>
+<p><code>signature</code><br>
+This is the API key <b>class S</b> that <a href="{{site.url}}/apikeys/" title="API keys">can be requested here</a>.</p>
+<p><code>timestamp</code><br>
+If you got a API key <b>class S</b> that is valid for a limited time (currently for 6 months) you have to pass this parameter with the timesstamp you got from us with your API key. See <a href="https://github.com/YOURLS/YOURLS/wiki/PasswordlessAPI#usage-of-a-time-limited-signature-token">Passwordless API requests</a>. Your API key is only valid for 6 months.</p>
+<p><code>action</code><br>
+Use the action <em>shorturl</em> to get short URL for a link.</p>
+<p><code>url</code><br>
+The Spamty link to shorten (like <em><a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a></em>).</p>
+<p><code>output</code><br>
+Either <em>json</em> or <em>xml</em></p>
+<p><code>keyword</code> and <code>title</code> parameters are not supported.</p>
+
+<h3>Example Request</h3>
+<p>Example request with Javascript (using jQuery) to shorten a URL</p>
+<pre class="prettyprint">
+var api_url  = 'https://3q3.de/yourls-api.php';
+var response = $.post( api_url, {
+    secret: "YOUR_SECRET_KEY",
+    action:   "shorturl",
+    format:   "json",
+    url:      "http://spamty.eu/mail/v4/20/869656557u8375992c/"
+    },
+    // callback function that will deal with the server response
+    function( data) {
+        // for instance, return short URL
+        return data.shorturl;
+    }
+);
+</pre>
+
+
+
+<h2>Return Values</h2>
+<p>The request will return a JSON or XML response with the following data:</p>
+<p><code>status</code><br>
+Has the value <em>success</em> if all was good. YOURLS sometimes uses the value <em>fail</em> is there was an error. The <em>fail</em> value is not used if you provided an invalid secret so you should not rely on this one.</p>
+<p><code>errorCode</code><br>
+A numeric code if an error occurred. This is should be the same as the HTTP status code.</p>
+<p><code>statusCode</code><br>
+This has the value "200" if your request was successful. It is recommended to use this value to check validate if your request was successful.</p>
+<p><code>message</code><br>
+A long description of the error or a success message.</p>
+<p><code>shorturl</code><br>
+A shortened url (like <em> <a href="http://3q3.de/demo" target="_blank" rel="nofollow">http://3q3.de/demo</a> </em>)</p>
+
+<h3>Example Response</h3>
+<p>A JSON response could look like:</p>
+<h4>Login error</h4>
+<pre class="prettyprint">
+{
+  "message": "Please log in",
+  "errorCode": 403,
+  "callback": ""
+}
+</pre>
+<h4>Invalid domain</h4>
+<pre class="prettyprint">
+{
+  "status": "fail",
+  "code": "error:domain-not-allowed",
+  "message": "This domain is not allowed",
+  "errorCode": "400"
+}
+</pre>
+<h4>Successful request</h4>
+<pre class="prettyprint">
+{
+  "url": {
+    "keyword": "demo",
+    "url": "http://spamty.eu/mail/v4/20/869656557u8375992c/",
+    "title": "http://spamty.eu/mail/v4/20/869656557u8375992c/",
+    "date": "2016-07-17 11:27:04",
+    "ip": "123.123.0.0"
+  },
+  "status": "success",
+  "message": "http://spamty.eu/mail/v4/20/869656557u8375992c/ added to database",
+  "title": "http://spamty.eu/mail/v4/20/869656557u8375992c/",
+  "shorturl": "http://3q3.de/demo",
+  "statusCode": 200
+}
+</pre>
+
+
+<h2>See Also</h2>
+<ul>
+	<li><a href="{{site.url}}/shorturlview/" title="Shorturlview API">View a short URL</a></li>
+	<li><a href="{{site.url}}/shorturlcreate/changelog/" title="Changelog">Changelog</a></li>
+</ul>
+<p>Please report any issues with this API or feature requests at our <a href="https://spamty.eu/contact-dev.php">via this form</a>.</p>
