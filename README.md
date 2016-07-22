@@ -4,6 +4,10 @@
 [![Open Issues](http://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&shields_label=open_issues)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues)
 [![Closed Issues](http://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&open=closed&shields_label=closed_issues&shields_color=green)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues&open=closed)
 
+![Copyright](https://img.shields.io/badge/copyright-2016_Spamty.eu-blue.png)
+![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
+
+
 This is our API documentation which can be viewed here: <https://dev.spamty.eu/>
 
 ## Documentation
