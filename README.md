@@ -1,6 +1,8 @@
 # Spamty API Docs
 
 [![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
+[![Open Issues](http://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&shields_label=open_issues)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues)
+[![Closed Issues](http://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&open=closed&shields_label=closed_issues&shields_color=green)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues&open=closed)
 
 This is our API documentation which can be viewed here: <https://dev.spamty.eu/>
 
