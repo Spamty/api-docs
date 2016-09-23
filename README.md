@@ -1,7 +1,7 @@
 # Spamty API Docs
 
 [![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
-[![Open Issues](https://img.shields.io/github/issues/spamty/blog.svg)](https://github.com/Spamty/api-docs/issues)
+[![Open Issues](https://img.shields.io/github/issues/spamty/api-docs.svg)](https://github.com/Spamty/api-docs/issues)
 
 ![Copyright](https://img.shields.io/badge/copyright-2016_Spamty.eu-blue.png)
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
