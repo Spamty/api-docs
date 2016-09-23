@@ -1,8 +1,7 @@
 # Spamty API Docs
 
 [![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
-[![Open Issues](https://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&shields_label=open_issues)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues)
-[![Closed Issues](https://bugs.spamty.eu/index.php?page=api&project=api-docs&XMODE=badge&api_username=api-docs-GitHub-README&open=closed&shields_label=closed_issues&shields_color=green)](https://bugs.spamty.eu/index.php?project=api-docs&page=issues&open=closed)
+[![Open Issues](https://img.shields.io/github/issues/spamty/blog.svg)](https://github.com/Spamty/api-docs/issues)
 
 ![Copyright](https://img.shields.io/badge/copyright-2016_Spamty.eu-blue.png)
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
@@ -12,11 +11,11 @@ This is our API documentation which can be viewed here: <https://dev.spamty.eu/>
 
 ## Documentation
 
-For detailed info about Jekyll see */docs* folder and <https://jekyllrb.com/docs/home/>
+For detailed info about Jekyll see GitHub Wiki <https://github.com/Spamty/api-docs/wiki> and Jekyll docs <https://jekyllrb.com/docs/home/>.
 
 ## Issues & Bugs
 
-Report issues and bugs in our internal bugtracker: <https://bugs.spamty.eu/index.php?project=api-docs&page=issues>. 
+Report issues and bugs on GitHub: <https://github.com/Spamty/api-docs/issues>. 
 
 Or send us an email: <https://3q3.de/spamty>
 
