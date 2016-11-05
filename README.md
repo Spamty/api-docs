@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
 [![Open Issues](https://img.shields.io/github/issues/spamty/api-docs.svg)](https://github.com/Spamty/api-docs/issues)
 
-[![License](https://img.shields.io/badge/license-CC_BY--NC--ND-blue.png)](https://github.com/Spamty/api-docs/blob/gh-pages/LICENSE.md)
+[![License](https://img.shields.io/badge/license-CC--BY--NC--ND_GNU--GPL--v3-blue.png)](https://github.com/Spamty/api-docs/blob/gh-pages/LICENSE.md)
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
 
 
@@ -24,6 +24,13 @@ Or send us an email: <https://3q3.de/spamty>
 Copyright (c) 2016 by 
 [Spamty team](https://github.com/Spamty) &
 [contributors](https://github.com/Spamty/api-docs/graphs/contributors)
+
+The **source code of this API documentation** (especially HTML code)
+is licensed under the **GNU General Public License**
+version 3 as published by the Free Software Foundation.
+
+You should have received a copy of the GNU General Public License
+along with this work. If not, see <http://www.gnu.org/licenses/>.
 
 The **text and content of this API documentation** 
 is licensed under a Creative Commons 
