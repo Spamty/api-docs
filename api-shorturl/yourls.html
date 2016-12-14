@@ -17,7 +17,7 @@ gh-file: api-shorturl/yourls.html
 <h2>URL</h2>
 <p>Use this URL for your HTTP POST request (we dropped support for GET):</p>
 <pre>https://3q3.de/yourls-api.php</pre>
-<p>You are recommended to use <a href="{{site.url}}/https/">HTTPS</a>.</p>
+<p>You are have to use <a href="{{site.url}}/https/">HTTPS</a>, other requests are blocked.</p>
 
 
 <h2>Parameters</h2>
@@ -29,12 +29,12 @@ An API key <b>class S</b> is valid for a limited time (currently for 6 months). 
 <p><code>action</code><br>
 <tt>"shorturl"</tt> (get short URL for a link) or <tt>"expand"</tt> (get long URL of a shorturl)</p>
 <p><code>url</code> (for action = "shorturl")<br>
-The Spamty link to shorten (like <em><a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a></em>).</p>
+The Spamty link to shorten (like <em><a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">https://spamty.eu/mail/v4/20/869656557u8375992c/</a></em>).</p>
 <p><code>keyword</code> and <code>title</code> parameters (for action = "shorturl") are not supported.</p>
 <p><code>shorturl</code> (for action = "expand")<br>
-the short URL to expand (can be either 'demo' or 'http://3q3.de/demo').</p>
+the short URL to expand (can be either 'demo' or 'https://3q3.de/demo').</p>
 <p><code>output</code><br>
-The output format: either <tt>"jsonp"</tt>, <tt>"json"</tt>, <tt>"xml"</tt> or <tt>"simple"</tt>.</p>
+The output format: either <tt>"json"</tt>, <tt>"xml"</tt> or <tt>"simple"</tt>. <tt>"jsonp"</tt> is not supported anymore.</p>
 
 <h2>Example Request</h2>
 <h3>JavaScript</h3>
@@ -46,7 +46,7 @@ var response = $.post( api_url, {
     timestamp: "YOUR_TIMESTAMP",
     action:   "shorturl",
     format:   "json",
-    url:      "http://spamty.eu/mail/v4/20/869656557u8375992c/"
+    url:      "https://spamty.eu/mail/v4/20/869656557u8375992c/"
     },
     // callback function that will deal with the server response
     function( data) {
@@ -60,7 +60,7 @@ var response = $.post( api_url, {
 <p>Example request with PHP to view the long URL from a shortened one.</p>
 <pre class="prettyprint">
 &lt?php
-$api_url =  'http://3q3.de/yourls-api.php';
+$api_url =  'https://3q3.de/yourls-api.php';
 
 // Init the CURL session
 $ch = curl_init();
@@ -97,7 +97,7 @@ This has the value "200" if your request was successful. It is recommended to us
 <p><code>message</code><br>
 A long description of the error or a success message.</p>
 <p><code>longurl</code><br>
-The Spamty link (like <em> <a href="http://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">http://spamty.eu/mail/v4/20/869656557u8375992c/</a> </em>)</p>
+The Spamty link (like <em> <a href="https://spamty.eu/mail/v4/20/869656557u8375992c/" target="_blank" rel="nofollow">https://spamty.eu/mail/v4/20/869656557u8375992c/</a> </em>)</p>
 
 <h3>Example Response</h3>
 <p>A JSON response could look like:</p>
@@ -121,8 +121,8 @@ The Spamty link (like <em> <a href="http://spamty.eu/mail/v4/20/869656557u837599
 <pre class="prettyprint">
 {
   "keyword": "demo",
-  "shorturl": "http://3q3.de/demo",
-  "longurl": "http://spamty.eu/mail/v4/20/869656557u8375992c/",
+  "shorturl": "https://3q3.de/demo",
+  "longurl": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
   "title": "Demo Link (demo@spamty.eu)",
   "message": "success",
   "statusCode": 200
