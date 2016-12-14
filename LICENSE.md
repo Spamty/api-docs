@@ -1,5 +1,16 @@
-# License
+---
+title: License
+excerpt: License and copyright information for the API documentation.
 
+layout: default
+permalink: /license/
+
+gh-file: LICENSE.md
+
+# Spamty API Doc <https://dev.spamty.eu/>
+# Copyright (c) 2016 by Spamty team & contributors
+# [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
+---
 Copyright (c) 2016 by 
 [Spamty team](https://github.com/Spamty) &
 [contributors](https://github.com/Spamty/api-docs/graphs/contributors)

@@ -16,4 +16,4 @@ url: "https://dev.spamty.eu" # the base hostname & protocol for your site
 markdown: kramdown
 
 # exclude some files
-exclude: ["README.md", "LICENSE.md", "CNAME", "docs/", "vendor"]
+exclude: ["README.md", "CNAME", "vendor"]
