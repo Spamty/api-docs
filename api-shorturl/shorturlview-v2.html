@@ -22,7 +22,7 @@ gh-file: api-shorturl/shorturlview-v2.html
 <h2>Parameters</h2>
 <p>Send a HTTP request with the following POST parameters:</p>
 <p><code>shortUrl</code><br>
-A 3q3.de short URL (like <em><a href="http://3q3.de/demo" target="_blank" rel="nofollow">http://3q3.de/demo</a></em>).</p>
+A 3q3.de short URL (like <em><a href="https://3q3.de/demo" target="_blank" rel="nofollow">https://3q3.de/demo</a></em>).</p>
 <p><code>apiUser</code><br>
 Your class <strong>SV</strong> API username.</p>
 <p><code>apiKey</code><br>
@@ -47,7 +47,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 // Define the data to POST
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(
 	// the link
-	'shortUrl'	=> 'http://3q3.de/demo',
+	'shortUrl'	=> 'https://3q3.de/demo',
 	// api username & key
 	'apiUser'	=> 'sv_931836481',
 	'apiKey'	=> '12345678901234541678901234567890ab',
@@ -79,8 +79,8 @@ The long URL / The Link to the email address.</p>
    "status" : 1,
    "statusDetails" : "ok",
    "version" : "2.1",
-   "info" : "http://dev.spamty.eu/shorturlview",
-   "longUrl" : "http://spamty.eu/mail/v4/20/869656557u8375992c/"
+   "info" : "https://dev.spamty.eu/shorturlview",
+   "longUrl" : "https://spamty.eu/mail/v4/20/869656557u8375992c/"
 }</pre>
 <h4>XML</h4>
 <pre class="prettyprint">

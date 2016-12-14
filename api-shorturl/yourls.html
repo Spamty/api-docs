@@ -12,7 +12,7 @@ gh-file: api-shorturl/yourls.html
 # [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
 ---
 <p>With this API method you can create a short URL or view the long URL from a shortened Spamty link with 3q3.de.</p>
-<p>We are using the software <a href="http://yourls.org/#API">YOURLS</a> <strong>version 1.7.1</strong> with some adaptions. See <a href="{{site.url}}/shorturl/changelog/" title="Changelog">our custom changelog</a>.</p>
+<p>We are using the software <a href="https://yourls.org/#API">YOURLS</a> <strong>version 1.7.1</strong> with some adaptions. See <a href="{{site.url}}/shorturl/changelog/" title="Changelog">our custom changelog</a>.</p>
 
 <h2>URL</h2>
 <p>Use this URL for your HTTP POST request (we dropped support for GET):</p>
@@ -69,7 +69,7 @@ curl_setopt($ch, CURLOPT_HEADER, 0);            // No header in the result
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return, do not echo result
 curl_setopt($ch, CURLOPT_POST, 1);              // This is a POST request
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(     // Data to POST
-        'shorturl' => 'http://3q3.de/demo',
+        'shorturl' => 'https://3q3.de/demo',
         'format'   => 'json',
         'action'   => 'expand',
         'signature'   => 'YOUR_SECRET_HERE',
@@ -132,7 +132,7 @@ The Spamty link (like <em> <a href="https://spamty.eu/mail/v4/20/869656557u83759
 
 <h2>See Also</h2>
 <ul>
-	<li>official <a href="http://yourls.org/#API" title="YOURLS API">YOURLS' API docs</a></li>
+	<li>official <a href="https://yourls.org/#API" title="YOURLS API">YOURLS' API docs</a></li>
 	<li><a href="https://github.com/YOURLS/YOURLS" title="GitHub">YOURLS on GitHub</a></li>
 	<li><a href="{{site.url}}/shorturl/changelog/" title="Changelog">Changelog</a></li>
 </ul>

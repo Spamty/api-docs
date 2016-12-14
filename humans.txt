@@ -6,7 +6,7 @@
 /* TEAM */
 	Developer: Philipp Rackevei
 	From: Germany
-	Contact: http://3q3.de/spamty
+	Contact: https://3q3.de/spamty
 	Twitter: @philipp_ra
 	GitHub: @philipp-r
 
