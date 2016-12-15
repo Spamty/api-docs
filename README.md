@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Spamty/api-docs.svg?branch=gh-pages)](https://travis-ci.org/Spamty/api-docs)
 [![Open Issues](https://img.shields.io/github/issues/spamty/api-docs.svg)](https://github.com/Spamty/api-docs/issues)
 
-[![License](https://img.shields.io/badge/license-CC--BY--NC--ND_GNU--GPL--v3-blue.png)](https://github.com/Spamty/api-docs/blob/gh-pages/LICENSE.md)
+[![License](https://img.shields.io/badge/license-CC--BY--NC--ND_GNU--GPL--v3-blue.svg)](https://github.com/Spamty/api-docs/blob/gh-pages/LICENSE.md)
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
 
 
