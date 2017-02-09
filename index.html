@@ -1,31 +1,101 @@
 ---
-layout: default
-title: API Documentation
-
-gh-file: index.html
+permalink: index.html
 
 # Spamty API Doc <https://dev.spamty.eu/>
-# Copyright (c) 2016 by Spamty team & contributors
+# Copyright (c) 2017 by Spamty team & contributors
 # [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
 ---
-<p>You can find the documentation for the current api version here. We offer the following methods:</p>
-<ul>
-	<li><a href="{{site.url}}/encryption/" title="encryption">Generate a link to an email address</a></li>
-	<li><a href="{{site.url}}/decryption/" title="decryption">View an email address from a spamty link</a></li>
-</ul>
-<ul>
-	<li><a href="{{site.url}}/shorturl/" title="shorturl">Generate & view a 3q3.de short URL</a></li>
-</ul>
-<p>You can also use <a href="{{site.url}}/iframe/" title="mail iframe">our iframe</a> to show the captcha and your email address directly on your own website.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" integrity="sha256-GamwdmSkzX/X39UCQREOQHmmuU2ewsnrft1flUimjxA=" crossorigin="anonymous" />
+	<link href="//cdn.spamty.de/css/sidebar.css" rel="stylesheet" />
 
-<h2>Help</h2>
-<p>If you need help or have any questions have a look at our <a href="{{site.url}}/faq/" title="frequently asked questions">FAQ section</a> and feel free to <a href="http://spamty.eu/contact-dev.php">contact us</a>.</p>
 
-<h2>More Stuff</h2>
+	<link rel="apple-touch-icon" sizes="76x76"   href="//cdn.spamty.de/img/touch-icon-76.png"  />
+	<link rel="apple-touch-icon" sizes="120x120" href="//cdn.spamty.de/img/touch-icon-120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="//cdn.spamty.de/img/touch-icon-152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="//cdn.spamty.de/img/touch-icon-180.png" />
+	<link rel="shortcut icon" href="//cdn.spamty.de/img/favicon.ico" />
+
+
+	<meta name="publisher" content="Spamty" />
+	<meta property="og:site_name" content="Spamty API Documentation" />
+	<meta name="twitter:site" content="@spamty" />
+	<meta name="twitter:creator" content="@spamty" />
+	<meta name="copyright" content="(c) 2017 by Spamty team and contributors" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="keywords" content="API, protect email, email spam, Spamty API, documentation" />
+	<meta name="robots" content="index,follow">
+
+
+	<meta property="og:locale" content="en" />
+
+
+  <title>Spamty API Documentation</title>
+	<meta property="og:title" content="Spamty API Documentation" />
+	<meta name="twitter:title" content="Spamty API Documentation" />
+	<meta name="description" content="">
+	<meta property="og:description" content="" />
+	<meta name="twitter:description" content="" />
+	<link rel="canonical" href="https://dev.spamty.eu/index.html">
+	<meta property="og:url" content="https://dev.spamty.eu/index.html" />
+</head>
+
+
+<body>
+
+
+<div class="container">
+    <div class="header">
+    <ul class="nav nav-pills pull-right">
+		<li><a href="https://dev.spamty.eu/">Home</a></li>
+		<li><a href="https://spamty.eu/index.php">Spamty.eu</a></li>
+    </ul>
+    <h3 class="text-muted"><a href="https://dev.spamty.eu/"><img src="//cdn.spamty.de/img/logo.png" alt="Spamty Logo"></a></h3>
+    <hr />
+</div>
+
+
+
+
+<h1>Spamty API</h1><hr/>
+
+<h2>API documentation</h2>
+<p>You can view the <a href="docs.html">API documentation here</a>.</p>
+<p>We offer the following APIs:</p>
 <ul>
-	<li><a href="{{site.url}}/apikeys/">API Keys</a></li>
-	<li><a href="{{site.url}}/logging/">Error Logging</a></li>
-	<li><a href="{{site.url}}/issues/">Issue tracking & Feature requests</a></li>
-	<li><a href="{{site.url}}/https/">HTTPS Info</a></li>
-	<li><a href="{{site.url}}/http-status/">HTTP Status Codes</a></li>
+	<li><a href="docs.html#encryption" title="encryption">Generate a link to an email address</a></li>
+	<li><a href="docs.html#decryption" title="decryption">View an email address from a spamty link</a></li>
+	<li><a href="docs.html#short-url" title="shorturl">Generate and view a 3q3.de short URL</a></li>
 </ul>
+
+<h2>API keys</h2>
+<p>Please send us <a href="https://spamty.eu/contact.php">an email to request an API key</a>.</p>
+
+
+<footer>
+<hr />
+<p>
+	<a href="https://spamty.eu/index.php">Spamty Website</a> |
+	<a href="https://blog.spamty.eu/">Blog</a> |
+	<a href="https://spamty.eu/privacy.php">Privacy Policy</a> |
+	<a href="https://spamty.eu/legal.php">Legal Notice</a> |
+	<a href="https://spamty.eu/contact.php">Contact</a>
+</p>
+<p>
+  This page was created with <a href="https://github.com/subosito/snowboard">snowboard</a> from an <a href="https://apiblueprint.org/">API blueprint</a> file <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+</p>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+</body>
+</html>

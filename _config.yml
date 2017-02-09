@@ -1,0 +1,19 @@
+# Jekyll Config
+# see https://jekyllrb.com/docs/configuration/
+#
+# Spamty API Doc <https://dev.spamty.eu/>
+# Copyright (c) 2017 by Spamty team & contributors
+# [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
+
+
+# Site settings
+title: Spamty API Documentation
+description: "This is the detailed documentation of the RESTful Spamty.eu API."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://dev.spamty.eu" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+# exclude some files
+exclude: ["README.md", "CNAME", "vendor", "docs-template.html", "docs.apib"]

@@ -3,7 +3,7 @@ title: License
 excerpt: License and copyright information for the API documentation.
 
 layout: default
-permalink: /license/
+permalink: /license.html
 
 gh-file: LICENSE.md
 
