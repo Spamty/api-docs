@@ -1,6 +1,0 @@
----
-permalink: .htaccess
----
-# No Indexing
-# Returns Error 500 on new Server
-# Options -Indexes

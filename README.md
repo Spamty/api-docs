@@ -7,21 +7,26 @@
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
 
 
-This is our API documentation which can be viewed here: <https://dev.spamty.eu/>
+This is our API documentation which [can be viewed here](https://dev.spamty.eu/).
 
 ## Documentation
 
-For detailed info about Jekyll see GitHub Wiki <https://github.com/Spamty/api-docs/wiki> and Jekyll docs <https://jekyllrb.com/docs/home/>.
+The API documentation is in the [API Blueprint](https://apiblueprint.org/) file `docs.apib`.
+
+The documentation (`docs.html`) is generated with [snowboard](https://github.com/subosito/snowboard).
+Do not edit this HTML file! Only edit the API Blueprint file.
+Run this command to generate the HTML file:
+
+    snowboard html -i docs.apib -o docs.html -t docs-template.html
 
 ## Issues & Bugs
 
-Report issues and bugs on GitHub: <https://github.com/Spamty/api-docs/issues>. 
-
-Or send us an email: <https://3q3.de/spamty>
+Report issues and bugs [on GitHub](https://github.com/Spamty/api-docs/issues)
+or [send us an email](https://3q3.de/spamty).
 
 ## License
 
-Copyright (c) 2016 by 
+Copyright (c) 2017 by
 [Spamty team](https://github.com/Spamty) &
 [contributors](https://github.com/Spamty/api-docs/graphs/contributors)
 
@@ -32,8 +37,8 @@ version 3 as published by the Free Software Foundation.
 You should have received a copy of the GNU General Public License
 along with this work. If not, see <http://www.gnu.org/licenses/>.
 
-The **text and content of this API documentation** 
-is licensed under a Creative Commons 
+The **text and content of this API documentation**
+is licensed under a Creative Commons
 **Attribution-NonCommercial-NoDerivatives 4.0 International** License.
 
 You should have received a copy of the license along with this
@@ -46,8 +51,9 @@ work. If not, see <https://creativecommons.org/licenses/by-nc-nd/4.0/>.
 
 
 
-Built with 
-[Jekyll](https://jekyllrb.com/), 
-[Prettify](https://github.com/google/code-prettify/), 
-[Twitter Bootstrap](https://getbootstrap.com/) and 
+Built with
+[snowboard](https://github.com/subosito/snowboard),
+[API Blueprint](https://apiblueprint.org/),
+[Prettify](https://github.com/google/code-prettify/),
+[Bootstrap](https://getbootstrap.com/) and
 [GitHub Pages](https://pages.github.com).

@@ -1,19 +1,17 @@
 ---
 # Spamty API Doc <https://dev.spamty.eu/>
-# Copyright (c) 2016 by Spamty team & contributors
+# Copyright (c) 2017 by Spamty team & contributors
 # [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
 ---
 /* TEAM */
 	Developer: Philipp Rackevei
 	From: Germany
 	Contact: https://3q3.de/spamty
-	Twitter: @philipp_ra
-	GitHub: @philipp-r
 
 /* SITE */
 	Language: English
 	Doctype: HTML5
 	Standards: HTML5, CSS3
 	Components: Twitter Bootstrap
-	IDE: TextWrangler, Transmit, GitHub, Jekyll
-	Hosted by: GitHub Pages 
+	IDE: Atom, Transmit, GitHub, Jekyll, snowboard
+	Hosted by: GitHub Pages

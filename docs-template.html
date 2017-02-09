@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" integrity="sha256-GamwdmSkzX/X39UCQREOQHmmuU2ewsnrft1flUimjxA=" crossorigin="anonymous" />
+	<link href="//cdn.spamty.de/css/sidebar.css" rel="stylesheet" />
+
+	<!-- Icons -->
+	<link rel="apple-touch-icon" sizes="76x76"   href="//cdn.spamty.de/img/touch-icon-76.png"  />
+	<link rel="apple-touch-icon" sizes="120x120" href="//cdn.spamty.de/img/touch-icon-120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="//cdn.spamty.de/img/touch-icon-152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="//cdn.spamty.de/img/touch-icon-180.png" />
+	<link rel="shortcut icon" href="//cdn.spamty.de/img/favicon.ico" />
+
+	<!-- default SEO -->
+	<meta name="publisher" content="Spamty" />
+	<meta property="og:site_name" content="Spamty API Documentation" />
+	<meta name="twitter:site" content="@spamty" />
+	<meta name="twitter:creator" content="@spamty" />
+	<meta name="copyright" content="(c) 2017 by Spamty team and contributors" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="keywords" content="API, protect email, email spam, Spamty API, documentation" />
+	<meta name="robots" content="index,follow">
+
+	<!-- language SEO -->
+	<meta property="og:locale" content="en" />
+
+	<!-- custom SEO -->
+  <title>Spamty API Documentation</title>
+	<meta property="og:title" content="Spamty API Documentation" />
+	<meta name="twitter:title" content="Spamty API Documentation" />
+	<meta name="description" content="">
+	<meta property="og:description" content="" />
+	<meta name="twitter:description" content="" />
+	<link rel="canonical" href="https://dev.spamty.eu/">
+	<meta property="og:url" content="https://dev.spamty.eu/" />
+</head>
+
+
+<body>
+
+<!-- Top navigation -->
+<div class="container">
+    <div class="header">
+    <ul class="nav nav-pills pull-right">
+		<li><a href="https://dev.spamty.eu/">Home</a></li>
+		<li><a href="https://spamty.eu/index.php">Spamty.eu</a></li>
+    </ul>
+    <h3 class="text-muted"><a href="https://dev.spamty.eu/"><img src="//cdn.spamty.de/img/logo.png" alt="Spamty Logo"></a></h3>
+    <hr />
+</div>
+
+
+<div class="row">
+    <!-- Main content -->
+		<div class="col-md-8">
+      {{template "Introduction" .}}
+      {{template "ResourceGroups" .}}
+			<ol class="breadcrumb text-right">
+			  <li>
+			  	<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				  <a href="https://github.com/Spamty/api-docs/blob/master/api.apib">Edit on GitHub</a>
+			  </li>
+			</ol>
+		</div>
+
+
+    <!-- Sidebar nav -->
+		<div class="col-md-3 col-md-offset-1">
+			<div class="bs-docs-sidebar sidebar">
+        {{template "Navigation" .}}
+      </div>
+		</div>
+
+
+
+
+</div>
+
+
+
+<!-- footer -->
+<footer>
+<hr />
+<p>
+	<a href="https://spamty.eu/index.php">Spamty Website</a> |
+	<a href="https://blog.spamty.eu/">Blog</a> |
+	<a href="https://spamty.eu/privacy.php">Privacy Policy</a> |
+	<a href="https://spamty.eu/legal.php">Legal Notice</a> |
+	<a href="https://dev.spamty.eu/contact/">Contact</a>
+</p>
+<p>
+  This page was created with <a href="https://github.com/subosito/snowboard">snowboard</a> from an <a href="https://apiblueprint.org/">API blueprint</a> file <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+</p>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+{{define "Navigation"}}
+<div class="affix">
+<h4>{{.Title}}</h4>
+<ul class="nav nav-sidebar">
+	<li><a href="#introduction">Introduction</a></li>
+</ul>
+{{range $groupN, $group := .ResourceGroups}}
+{{if $group.Title}}
+  <h4>{{$group.Title}}</h4>
+{{end}}
+<ul class="nav nav-sidebar">
+  {{range $resourceN, $resource := $group.Resources}}
+    {{if $resource.Transitions}}
+      {{range $transitionN, $transition := $resource.Transitions}}
+        <li><a href="#{{if $resource.Title}}{{$resource.Title | parameterize}}{{else}}{{$transition.Permalink}}{{end}}">
+          {{if $resource.Title}}
+            {{$resource.Title}}
+          {{else}}
+            {{if $transition.Title}}
+              {{$transition.Title}}
+            {{else}}
+              {{$resource.Href.Path}}
+            {{end}}
+          {{end}}
+        </a></li>
+      {{end}}
+    {{end}}
+  {{end}}
+</ul>
+{{end}}
+</div>
+{{end}}
+
+
+
+
+
+
+{{define "Introduction"}}
+<h1 id="introduction">{{.Title}}</h1><hr/>
+<div class="description">
+  {{.Description | markdownize}}
+</div>
+{{end}}
+
+
+
+
+
+
+
+{{define "ResourceGroups"}}
+{{range $groupN, $group := .ResourceGroups}}
+  <h2 {{if $group.Title}}id="{{$group.Title | parameterize}}"{{end}}>{{$group.Title}}</h2><hr/>
+  <p>{{$group.Description | markdownize}}</p>
+  {{range $resourceN, $resource := $group.Resources}}
+    {{if $resource.Transitions}}
+    <h3 {{if $resource.Title}}id="{{$resource.Title | parameterize}}"{{end}}>{{if $resource.Title}}{{$resource.Title}} <small>{{$resource.Href.Path}}</small>{{else}}{{$resource.Href.Path}}{{end}}</h3><hr/>
+    <p class="lead">{{$resource.Description | markdownize}}</p>
+        {{range $transitionN, $transition := $resource.Transitions}}
+          <h3 id="{{$transition.Permalink}}"><span class="label label-success">{{$transition.Method}}</span> {{$transition.URL}}</h3>
+          <p>{{$transition.Description | markdownize}}</p>
+
+            {{range $transactionN, $transaction := $transition.Transactions}}
+              <h3><span class="text-uppercase">Request</span>{{if $transaction.Request.Title}} {{$transaction.Request.Title}}{{end}}</h3>
+              <p>{{$transaction.Request.Description | markdownize}}</p>
+              <p>Method: {{$transaction.Request.Method}}<br/>
+              Location: <pre>{{$transition.URL}}</pre></p>
+              {{if $transition.Href.Parameters}}
+                {{template "Parameters" $transition.Href.Parameters}}
+              {{end}}
+              {{if $transaction.Request.Headers}}
+                {{template "Headers" $transaction.Request.Headers}}
+              {{end}}
+
+              {{if ne $transaction.Request.Body.Body ""}}
+                <h4>Request Body</h4>
+                <pre class="prettyprint{{if $transaction.Request.Body.Body}} lang-{{alias $transaction.Request.Body.ContentType}}{{end}}">{{$transaction.Request.Body.Body}}</pre>
+              {{end}}
+              {{if ne $transaction.Request.Schema.Body ""}}
+                <h4>Request Schema</h4>
+                <pre class="prettyprint{{if $transaction.Request.Body.Body}} lang-{{alias $transaction.Request.Body.ContentType}}{{end}}">{{$transaction.Request.Schema.Body}}</pre>
+              {{end}}
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p>{{$transaction.Response.Description | markdownize}}</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{range $headersN, $header := $transaction.Request.Headers}}
+                  <tr>
+                    <td><code>{{$header.Key}}</code></td>
+                    <td><code>{{$header.Value}}</code></td>
+                  </tr>
+                  {{end}}
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>{{$transaction.Response.StatusCode}}</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>{{$transaction.Response.Body.ContentType}}</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              {{if ne $transaction.Response.Body.Body ""}}
+                <h4>Response Body</h4>
+                <pre class="prettyprint{{if $transaction.Response.Body.Body}} lang-{{alias $transaction.Response.Body.ContentType}}{{end}}">{{$transaction.Response.Body.Body}}</pre>
+              {{end}}
+              {{if ne $transaction.Response.Schema.Body ""}}
+                <h4>Response Schema</h4>
+                <pre class="prettyprint{{if $transaction.Response.Body.Body}} lang-{{alias $transaction.Response.Body.ContentType}}{{end}}">{{$transaction.Response.Schema.Body}}</pre>
+              {{end}}
+
+
+
+
+            {{end}}
+        {{end}}
+    {{end}}
+  {{end}}
+{{end}}
+{{end}}
+
+{{define "Headers"}}
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{range $index, $param := .}}
+    <tr>
+      <td><code>{{.Key}}</code></td>
+      <td><code>{{.Value}}</code></td>
+    </tr>
+  {{end}}
+  </tbody>
+</table>
+{{end}}
+
+{{define "Parameters"}}
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{range $index, $param := .}}
+    <tr>
+      <td>{{if eq .Required true}}required{{else}}optional{{end}}</td>
+      <td><code>{{.Key}}</code></td>
+      <td><code>{{.Kind}}</code>{{if .Value}}( Value: <code>{{.Value}}</code>){{end}}</td>
+      <td>{{if .Description}}{{.Description | markdownize}}{{else}} {{end}}</td>
+    </tr>
+  {{end}}
+  </tbody>
+</table>
+
+
+
+{{end}}

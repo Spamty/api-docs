@@ -1,0 +1,491 @@
+FORMAT: 1A
+
+# Spamty API
+This is the API for Spamty.eu.
+
+
+# Group Information
+This is the version API that gives you some general information about all Spamty APIs.
+
+
+# Versions and API info [/version/{api}]
+With this API you can get some information about the latest version of any Spamty API.
+
+## GET
+The API is located here: https://api.spamty.eu/version.php. Use HTTPS and send a GET request.
+
++ Parameters
+
+  + api (string) - The API type (values: shorturl, decryption, encryption)
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "url": "https://api.spamty.eu/decryption/v4.php",
+            "version": "4.2"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /version API",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 if successful, 0 for errors",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "Description of the error, if there was one",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "URL with API documentation",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "URL for the API",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Current API version",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails"],
+        }
+
+
+
+
+
+# Group Encryption
+This is the API to generate a new Spamty link with your email address.
+
+
+## Encryption v5 [/encryption]
+This is the API to generate a new Spamty link with your email address.
+
+### POST
+You need to do a post request.
+
++ Parameters
+
+  + email (string) - The complete valid email address (`test@example.com`).
+  + apiUser (string) - Your class E API Username.
+  + apiKey (string) - Your class E API Key.
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your data the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "v4",
+            "apiM": "20",
+            "apiK": "869656557u8375992c",
+            "urlPublic": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
+            "mailCheck": "50fbf5f7"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /encryption API",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number.",
+                    "type": "string"
+                },
+                "apiM": {
+                    "description": "The m parameter for the decryption request.",
+                    "type": "integer"
+                },
+                "apiK": {
+                    "description": "The k parameter for the decryption request. A string with no special chars.",
+                    "type": "string"
+                },
+                "urlPublic": {
+                    "description": "The public decryption url which can be shared.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+        }
+
+
+
+
+
+
+
+
+# Group Decryption
+This is the API to get an email address from a Spamty link.
+You need to use the API that corresponds to the encryption API that was used. For example if your Spamty link was created with the encryption API version 4 ("v4" is contained in the URL: `https://spamty.eu/mail/v4/20/869656557u8375992c/`) then you are required to use the decryption API version 4. Otherwise you will get an error.
+All decryption APIs are only for internal use. You need an additional authentication with HTTP Basic Auth header to use them.
+
+
+## Decryption v4 [/decryption/v4]
+With this API you can get an email address from a Spamty link.
+
+### POST
+You need to send a POST request.
+
++ Parameters
+      + m (integer) - The apiM parameter of the encryption request (a number).
+      + k (string) - The apiK parameter of the encryption request (a string with a-z A-z 0-9).
+      + apiUser (string) - Your class D Username.
+      + apiKey (string) - Your class E API Key.
+
++ Request
+  + Headers
+      Authentication: HTTP Basic
+
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "4.2",
+            "email": "demo@spamty.eu",
+            "mailCheck": "50fbf5f7"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /decryption API v4",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "A crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+        }
+
+## Decryption v3 [/decryption/v3]
+With this API you can get an email address from a Spamty link.
+It is only for internal use. You need an additional authentication with HTTP Basic Auth.
+
+### POST
+You need to send a POST request.
+
++ Parameters
+      + n (integer) - The apiN parameter of the encryption request (a number).
+      + m (integer) - The apiM parameter of the encryption request (a number).
+      + k (string) - The apiK parameter of the encryption request (a string with a-z A-z 0-9).
+      + apiUser (string) - Your class D Username.
+      + apiKey (string) - Your class E API Key.
+
++ Request
+  + Headers
+      Authentication: HTTP Basic
+
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "v3",
+            "email": "demo@spamty.eu",
+            "mailCheck": "50fbf5f7"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /decryption API v3",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "A crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+        }
+
+## Decryption v2 [/decryption/v2]
+
+### POST
+
++ Parameters
+      + n (integer) - The apiN parameter of the encryption request (a number).
+      + m (string) - The apiM parameter of the encryption request (string with a-z A-z 0-9).
+      + k (string) - The apiK parameter of the encryption request (string with a-z A-z 0-9).
+      + apiUser (string) - Your class D Username.
+      + apiKey (string) - Your class E API Key.
+
++ Request
+  + Headers
+      Authentication: HTTP Basic
+
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "v2",
+            "email": "demo@spamty.eu",
+            "mailCheck": "50fbf5f7"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /decryption API v2",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "A crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+        }
+
+
+
+
+## Decryption v1 [/decryption/v1]
+
+### POST
+
++ Parameters
+      + n (integer) - The apiN parameter of the encryption request (a number).
+      + m (string) - The apiM parameter of the encryption request (string with a-z A-z 0-9).
+      + k (string) - The apiK parameter of the encryption request (string with a-z A-z 0-9).
+      + apiUser (string) - Your class D Username.
+      + apiKey (string) - Your class E API Key.
+
++ Request
+  + Headers
+      Authentication: HTTP Basic
+
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+        {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "v1",
+            "email": "demo@spamty.eu",
+            "mailCheck": "50fbf5f7"
+        }
+
+    + Schema
+
+        {
+            "title": "Response /decryption API v1",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "A crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+        }
+
+
+
+
+# Group Short URL
+
+## Create short URL [/shorturl]
+With this API method you can create a short URL with 3q3.de.
+We are using the software YOURLS (version 1.7.1) with some adaptions.
+
+### POST
+Please refer to the YOURLS API documentation for more details: https://yourls.org/#API
+We changed some things for our custom API. These changes are shown here.
+You need to use POST since GET is not supported anymore.
+
++ Parameters
+  + signature (string) -  This is the API key class S that can be requested via email.
+  + timestamp (integer) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
+  + action (string) -  Use `shorturl` to get short URL for a link.
+  + url (string) -  The Spamty link to shorten (like `https://spamty.eu/mail/v4/20/869656557u8375992c/`). You can use this API only for links from our website.
+  + output (string) -  The output format: either `json`, `xml` or `simple`.
+
++ Response 200 (application/json)
+This is an example JSON response.
+
+    + Body
+
+        {
+          "status": "success",
+          "message": "https://spamty.eu/mail/v4/20/869656557u8375992c/ added to database",
+          "title": "Demo Link",
+          "shorturl": "https://3q3.de/demo",
+          "statusCode": 200
+        }
+
+
+## View short URL [/shorturl]
+With this API method you can view the long URL from a shortened Spamty link with 3q3.de.
+We are using the software YOURLS (version 1.7.1) with some adaptions.
+
+### POST
+Please refer to the YOURLS API documentation for more details: https://yourls.org/#API
+We changed some things for our custom API. These changes are shown here.
+You need to use POST since GET is not supported anymore.
+
++ Parameters
+  + signature (string) -  This is the API key class S that can be requested via email.
+  + timestamp (integer) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
+  + action (string) -  Use `expand` to get long URL of a shorturl.
+  + shorturl (string) -  The short URL to expand (can be either `demo` or `https://3q3.de/demo`).
+  + output (string) -  The output format: either `json`, `xml` or `simple`.
+
++ Response 200 (application/json)
+This is an example response.
+
+    + Body
+
+        {
+          "keyword": "demo",
+          "shorturl": "https://3q3.de/demo",
+          "longurl": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
+          "message": "success",
+          "statusCode": 200
+        }
