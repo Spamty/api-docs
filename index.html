@@ -1,26 +1,1564 @@
 ---
-title: Spamty API
-excerpt: Spamty.eu API documentation.
-
-layout: default
-permalink: /index.html
-
-gh-file: index.html
+permalink: /docs.html
 
 # Spamty API Doc <https://dev.spamty.eu/>
 # Copyright (c) 2017 by Spamty team & contributors
 # [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
 ---
-<h1>Spamty API</h1><hr/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" integrity="sha256-GamwdmSkzX/X39UCQREOQHmmuU2ewsnrft1flUimjxA=" crossorigin="anonymous" />
+	<link href="//cdn.spamty.de/css/sidebar.css" rel="stylesheet" />
 
-<h2>API documentation</h2>
-<p>You can view the <a href="docs.html">API documentation here</a>.</p>
-<p>We offer the following APIs:</p>
-<ul>
-	<li><a href="docs.html#encryption" title="encryption">Generate a link to an email address</a></li>
-	<li><a href="docs.html#decryption" title="decryption">View an email address from a spamty link</a></li>
-	<li><a href="docs.html#short-url" title="shorturl">Generate and view a 3q3.de short URL</a></li>
+	
+	<link rel="apple-touch-icon" sizes="76x76"   href="//cdn.spamty.de/img/touch-icon-76.png"  />
+	<link rel="apple-touch-icon" sizes="120x120" href="//cdn.spamty.de/img/touch-icon-120.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="//cdn.spamty.de/img/touch-icon-152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="//cdn.spamty.de/img/touch-icon-180.png" />
+	<link rel="shortcut icon" href="//cdn.spamty.de/img/favicon.ico" />
+
+	
+	<meta name="publisher" content="Spamty" />
+	<meta property="og:site_name" content="Spamty API Documentation" />
+	<meta name="twitter:site" content="@spamty" />
+	<meta name="twitter:creator" content="@spamty" />
+	<meta name="copyright" content="(c) 2017 by Spamty team and contributors" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="keywords" content="API, protect email, email spam, Spamty API, documentation" />
+	<meta name="robots" content="index,follow">
+
+	
+	<meta property="og:locale" content="en" />
+
+	
+  <title>Spamty API Documentation</title>
+	<meta property="og:title" content="Spamty API Documentation" />
+	<meta name="twitter:title" content="Spamty API Documentation" />
+	<meta name="description" content="">
+	<meta property="og:description" content="" />
+	<meta name="twitter:description" content="" />
+	<link rel="canonical" href="https://dev.spamty.eu/docs.html">
+	<meta property="og:url" content="https://dev.spamty.eu/docs.html" />
+</head>
+
+
+<body>
+
+
+<div class="container">
+    <div class="header">
+    <ul class="nav nav-pills pull-right">
+		<li><a href="https://dev.spamty.eu/">Home</a></li>
+		<li><a href="https://spamty.eu/index.php">Spamty.eu</a></li>
+    </ul>
+    <h3 class="text-muted"><a href="https://dev.spamty.eu/"><img src="//cdn.spamty.de/img/logo.png" alt="Spamty Logo"></a></h3>
+    <hr />
+</div>
+
+
+<div class="row">
+    
+		<div class="col-md-8">
+      
+<h1 id="introduction">Spamty API</h1><hr/>
+<div class="description">
+  <p>This is the API for Spamty.eu.</p>
+
+</div>
+
+      
+
+  <h2 id="information">Information</h2><hr/>
+  <p><p>This is the version API that gives you some general information about all Spamty APIs.</p>
+</p>
+  
+    
+    <h3 id="versions-and-api-info">Versions and API info <small>/version/{api}</small></h3><hr/>
+    <p class="lead"><p>With this API you can get some information about the latest version of any Spamty API.</p>
+</p>
+        
+          <h3 id="information-versions-and-api-info-get"><span class="label label-success">GET</span> /version/{api}</h3>
+          <p><p>The API is located here: <a href="https://api.spamty.eu/version.php">https://api.spamty.eu/version.php</a>. Use HTTPS and send a GET request.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: GET<br/>
+              Location: <pre>/version/{api}</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>api</code></td>
+      <td><code>string</code></td>
+      <td><p>The API type (values: shorturl, decryption, encryption)</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;url&#34;: &#34;https://api.spamty.eu/decryption/v4.php&#34;,
+    &#34;version&#34;: &#34;4.2&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /version API&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 if successful, 0 for errors&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;Description of the error, if there was one&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;URL with API documentation&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;url&#34;: {
+            &#34;description&#34;: &#34;URL for the API&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;Current API version&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+
+  <h2 id="encryption">Encryption</h2><hr/>
+  <p><p>This is the API to generate a new Spamty link with your email address.</p>
+</p>
+  
+    
+    <h3 id="encryption-v5">Encryption v5 <small>/encryption</small></h3><hr/>
+    <p class="lead"><p>This is the API to generate a new Spamty link with your email address.</p>
+</p>
+        
+          <h3 id="encryption-encryption-v5-post"><span class="label label-success">POST</span> /encryption</h3>
+          <p><p>You need to do a post request.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/encryption</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>email</code></td>
+      <td><code>string</code></td>
+      <td><p>The complete valid email address (<code>test@example.com</code>).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiUser</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Username.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiKey</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Key.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your data the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;version&#34;: &#34;v4&#34;,
+    &#34;apiM&#34;: &#34;20&#34;,
+    &#34;apiK&#34;: &#34;869656557u8375992c&#34;,
+    &#34;urlPublic&#34;: &#34;https://spamty.eu/mail/v4/20/869656557u8375992c/&#34;,
+    &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /encryption API&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;The version number.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;apiM&#34;: {
+            &#34;description&#34;: &#34;The m parameter for the decryption request.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;apiK&#34;: {
+            &#34;description&#34;: &#34;The k parameter for the decryption request. A string with no special chars.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;urlPublic&#34;: {
+            &#34;description&#34;: &#34;The public decryption url which can be shared.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;mailCheck&#34;: {
+            &#34;description&#34;: &#34;crc32b hash of the email address&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+
+  <h2 id="decryption">Decryption</h2><hr/>
+  <p><p>This is the API to get an email address from a Spamty link.
+You need to use the API that corresponds to the encryption API that was used. For example if your Spamty link was created with the encryption API version 4 (&ldquo;v4&rdquo; is contained in the URL: <code>https://spamty.eu/mail/v4/20/869656557u8375992c/</code>) then you are required to use the decryption API version 4. Otherwise you will get an error.
+All decryption APIs are only for internal use. You need an additional authentication with HTTP Basic Auth header to use them.</p>
+</p>
+  
+    
+    <h3 id="decryption-v4">Decryption v4 <small>/decryption/v4</small></h3><hr/>
+    <p class="lead"><p>With this API you can get an email address from a Spamty link.</p>
+</p>
+        
+          <h3 id="decryption-decryption-v4-post"><span class="label label-success">POST</span> /decryption/v4</h3>
+          <p><p>You need to send a POST request.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/decryption/v4</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>m</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiM parameter of the encryption request (a number).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>k</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiK parameter of the encryption request (a string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiUser</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class D Username.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiKey</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Key.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+                
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td><code>Authentication</code></td>
+      <td><code>HTTP Basic</code></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>Authentication</code></td>
+                    <td><code>HTTP Basic</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;version&#34;: &#34;4.2&#34;,
+    &#34;email&#34;: &#34;demo@spamty.eu&#34;,
+    &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /decryption API v4&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;The version number.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;email&#34;: {
+            &#34;description&#34;: &#34;The email address.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;mailCheck&#34;: {
+            &#34;description&#34;: &#34;A crc32b hash of the email address&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+    
+    <h3 id="decryption-v3">Decryption v3 <small>/decryption/v3</small></h3><hr/>
+    <p class="lead"><p>With this API you can get an email address from a Spamty link.
+It is only for internal use. You need an additional authentication with HTTP Basic Auth.</p>
+</p>
+        
+          <h3 id="decryption-decryption-v3-post"><span class="label label-success">POST</span> /decryption/v3</h3>
+          <p><p>You need to send a POST request.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/decryption/v3</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>n</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiN parameter of the encryption request (a number).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>m</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiM parameter of the encryption request (a number).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>k</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiK parameter of the encryption request (a string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiUser</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class D Username.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiKey</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Key.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+                
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td><code>Authentication</code></td>
+      <td><code>HTTP Basic</code></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>Authentication</code></td>
+                    <td><code>HTTP Basic</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;version&#34;: &#34;v3&#34;,
+    &#34;email&#34;: &#34;demo@spamty.eu&#34;,
+    &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /decryption API v3&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;The version.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;email&#34;: {
+            &#34;description&#34;: &#34;The email address.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;mailCheck&#34;: {
+            &#34;description&#34;: &#34;A crc32b hash of the email address&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+    
+    <h3 id="decryption-v2">Decryption v2 <small>/decryption/v2</small></h3><hr/>
+    <p class="lead"></p>
+        
+          <h3 id="decryption-decryption-v2-post"><span class="label label-success">POST</span> /decryption/v2</h3>
+          <p></p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/decryption/v2</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>n</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiN parameter of the encryption request (a number).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>m</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiM parameter of the encryption request (string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>k</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiK parameter of the encryption request (string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiUser</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class D Username.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiKey</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Key.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+                
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td><code>Authentication</code></td>
+      <td><code>HTTP Basic</code></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>Authentication</code></td>
+                    <td><code>HTTP Basic</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;version&#34;: &#34;v2&#34;,
+    &#34;email&#34;: &#34;demo@spamty.eu&#34;,
+    &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /decryption API v2&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;The version.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;email&#34;: {
+            &#34;description&#34;: &#34;The email address.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;mailCheck&#34;: {
+            &#34;description&#34;: &#34;A crc32b hash of the email address&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+    
+    <h3 id="decryption-v1">Decryption v1 <small>/decryption/v1</small></h3><hr/>
+    <p class="lead"></p>
+        
+          <h3 id="decryption-decryption-v1-post"><span class="label label-success">POST</span> /decryption/v1</h3>
+          <p></p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/decryption/v1</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>n</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiN parameter of the encryption request (a number).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>m</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiM parameter of the encryption request (string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>k</code></td>
+      <td><code>string</code></td>
+      <td><p>The apiK parameter of the encryption request (string with a-z A-z 0-9).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiUser</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class D Username.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>apiKey</code></td>
+      <td><code>string</code></td>
+      <td><p>Your class E API Key.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+                
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td><code>Authentication</code></td>
+      <td><code>HTTP Basic</code></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>Authentication</code></td>
+                    <td><code>HTTP Basic</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;status&#34;: 1,
+    &#34;statusDetails&#34;: &#34;ok&#34;,
+    &#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+    &#34;version&#34;: &#34;v1&#34;,
+    &#34;email&#34;: &#34;demo@spamty.eu&#34;,
+    &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+    &#34;title&#34;: &#34;Response /decryption API v1&#34;,
+    &#34;type&#34;: &#34;object&#34;,
+    &#34;properties&#34;: {
+        &#34;status&#34;: {
+            &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+            &#34;type&#34;: &#34;integer&#34;
+        },
+        &#34;statusDetails&#34;: {
+            &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;info&#34;: {
+            &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;version&#34;: {
+            &#34;description&#34;: &#34;The version.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;email&#34;: {
+            &#34;description&#34;: &#34;The email address.&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        },
+        &#34;mailCheck&#34;: {
+            &#34;description&#34;: &#34;A crc32b hash of the email address&#34;,
+            &#34;type&#34;: &#34;string&#34;
+        }
+    },
+    &#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+
+  <h2 id="short-url">Short URL</h2><hr/>
+  <p></p>
+  
+    
+    <h3 id="create-short-url">Create short URL <small>/shorturl</small></h3><hr/>
+    <p class="lead"><p>With this API method you can create a short URL with 3q3.de.
+We are using the software YOURLS (version 1.7.1) with some adaptions.</p>
+</p>
+        
+          <h3 id="short-url-create-short-url-post"><span class="label label-success">POST</span> /shorturl</h3>
+          <p><p>Please refer to the YOURLS API documentation for more details: <a href="https://yourls.org/#API">https://yourls.org/#API</a>
+We changed some things for our custom API. These changes are shown here.
+You need to use POST since GET is not supported anymore.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/shorturl</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>signature</code></td>
+      <td><code>string</code></td>
+      <td><p>This is the API key class S that can be requested via email.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>timestamp</code></td>
+      <td><code>string</code></td>
+      <td><p>An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>action</code></td>
+      <td><code>string</code></td>
+      <td><p>Use <code>shorturl</code> to get short URL for a link.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>url</code></td>
+      <td><code>string</code></td>
+      <td><p>The Spamty link to shorten (like <code>https://spamty.eu/mail/v4/20/869656557u8375992c/</code>). You can use this API only for links from our website.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>output</code></td>
+      <td><code>string</code></td>
+      <td><p>The output format: either <code>json</code>, <code>xml</code> or <code>simple</code>.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example JSON response.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+  &#34;status&#34;: &#34;success&#34;,
+  &#34;message&#34;: &#34;https://spamty.eu/mail/v4/20/869656557u8375992c/ added to database&#34;,
+  &#34;title&#34;: &#34;Demo Link&#34;,
+  &#34;shorturl&#34;: &#34;https://3q3.de/demo&#34;,
+  &#34;statusCode&#34;: 200
+}
+</pre>
+              
+              
+
+
+
+
+            
+        
+    
+  
+    
+    <h3 id="view-short-url">View short URL <small>/shorturl</small></h3><hr/>
+    <p class="lead"><p>With this API method you can view the long URL from a shortened Spamty link with 3q3.de.
+We are using the software YOURLS (version 1.7.1) with some adaptions.</p>
+</p>
+        
+          <h3 id="short-url-view-short-url-post"><span class="label label-success">POST</span> /shorturl</h3>
+          <p><p>Please refer to the YOURLS API documentation for more details: <a href="https://yourls.org/#API">https://yourls.org/#API</a>
+We changed some things for our custom API. These changes are shown here.
+You need to use POST since GET is not supported anymore.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>/shorturl</pre></p>
+              
+                
+<h4>Parameters</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Required</th>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>required</td>
+      <td><code>signature</code></td>
+      <td><code>string</code></td>
+      <td><p>This is the API key class S that can be requested via email.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>timestamp</code></td>
+      <td><code>string</code></td>
+      <td><p>An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>action</code></td>
+      <td><code>string</code></td>
+      <td><p>Use <code>expand</code> to get long URL of a shorturl.</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>shorturl</code></td>
+      <td><code>string</code></td>
+      <td><p>The short URL to expand (can be either <code>demo</code> or <code>https://3q3.de/demo</code>).</p>
+</td>
+    </tr>
+  
+    <tr>
+      <td>required</td>
+      <td><code>output</code></td>
+      <td><code>string</code></td>
+      <td><p>The output format: either <code>json</code>, <code>xml</code> or <code>simple</code>.</p>
+</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+              
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example response.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+  &#34;keyword&#34;: &#34;demo&#34;,
+  &#34;shorturl&#34;: &#34;https://3q3.de/demo&#34;,
+  &#34;longurl&#34;: &#34;https://spamty.eu/mail/v4/20/869656557u8375992c/&#34;,
+  &#34;message&#34;: &#34;success&#34;,
+  &#34;statusCode&#34;: 200
+}</pre>
+              
+              
+
+
+
+
+            
+        
+    
+  
+
+
+			<ol class="breadcrumb text-right">
+			  <li>
+			  	<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				  <a href="https://github.com/Spamty/api-docs/blob/master/api.apib">Edit on GitHub</a>
+			  </li>
+			</ol>
+		</div>
+
+
+    
+		<div class="col-md-3 col-md-offset-1">
+			<div class="bs-docs-sidebar sidebar">
+        
+<div class="affix">
+<h4>Spamty API</h4>
+<ul class="nav nav-sidebar">
+	<li><a href="#introduction">Introduction</a></li>
 </ul>
 
-<h2>API keys</h2>
-<p>Please send us <a href="https://spamty.eu/contact.php">an email to request an API key</a>.</p>
+
+  <h4>Information</h4>
+
+<ul class="nav nav-sidebar">
+  
+    
+      
+        <li><a href="#versions-and-api-info">
+          
+            Versions and API info
+          
+        </a></li>
+      
+    
+  
+</ul>
+
+
+  <h4>Encryption</h4>
+
+<ul class="nav nav-sidebar">
+  
+    
+      
+        <li><a href="#encryption-v5">
+          
+            Encryption v5
+          
+        </a></li>
+      
+    
+  
+</ul>
+
+
+  <h4>Decryption</h4>
+
+<ul class="nav nav-sidebar">
+  
+    
+      
+        <li><a href="#decryption-v4">
+          
+            Decryption v4
+          
+        </a></li>
+      
+    
+  
+    
+      
+        <li><a href="#decryption-v3">
+          
+            Decryption v3
+          
+        </a></li>
+      
+    
+  
+    
+      
+        <li><a href="#decryption-v2">
+          
+            Decryption v2
+          
+        </a></li>
+      
+    
+  
+    
+      
+        <li><a href="#decryption-v1">
+          
+            Decryption v1
+          
+        </a></li>
+      
+    
+  
+</ul>
+
+
+  <h4>Short URL</h4>
+
+<ul class="nav nav-sidebar">
+  
+    
+      
+        <li><a href="#create-short-url">
+          
+            Create short URL
+          
+        </a></li>
+      
+    
+  
+    
+      
+        <li><a href="#view-short-url">
+          
+            View short URL
+          
+        </a></li>
+      
+    
+  
+</ul>
+
+</div>
+
+      </div>
+		</div>
+
+
+
+
+</div>
+
+
+
+
+<footer>
+<hr />
+<p>
+	<a href="https://spamty.eu/index.php">Spamty Website</a> |
+	<a href="https://blog.spamty.eu/">Blog</a> |
+	<a href="https://spamty.eu/privacy.php">Privacy Policy</a> |
+	<a href="https://spamty.eu/legal.php">Legal Notice</a> |
+	<a href="https://spamty.eu/contact.php">Contact</a>
+</p>
+<p>
+  This page was created with <a href="https://github.com/subosito/snowboard">snowboard</a> from an <a href="https://apiblueprint.org/">API blueprint</a> file <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+</p>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
