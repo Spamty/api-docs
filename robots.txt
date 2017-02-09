@@ -1,4 +1,6 @@
 ---
+permalink: robots.txt
+
 # Spamty API Doc <https://dev.spamty.eu/>
 # Copyright (c) 2017 by Spamty team & contributors
 # [CC BY-NC-ND] [GNU GPL v3] see LICENSE.md
