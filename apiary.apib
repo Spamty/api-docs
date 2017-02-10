@@ -4,6 +4,17 @@ HOST: https://api.spamty.eu/
 # Spamty API
 This is the API for Spamty.eu.
 
+You can use it to generate a Spamty link (Encryption API) and to view an email address from a Spamty link (Decryption API).
+
+You can [contact us](https://spamty.eu/contact.php) if you need help or if you have any questions.
+Please look at our [statuspage](https://stats.uptimerobot.com/E9XBli1k6) to find out if there are any problems with our servers.
+
+
+# Group Authentication
+You need to authenticate with an username and an API key to use our API.
+Please [request them via our contact form](https://spamty.eu/contact.php).
+
+
 
 # Group Information
 This is the version API that gives you some general information about all Spamty APIs.
@@ -69,6 +80,9 @@ If there was an error the status code will be 400. Please look at the value for 
 
 # Group Encryption
 This is the API to generate a new Spamty link with your email address.
+
+The current version is v5. Notice that the link that will be created contains the version.
+A v5 link can be used only with our decryption API v5. Older versions of our encryption API are not available anymore.
 
 
 ## Encryption v5 [/encryption]
@@ -310,7 +324,7 @@ If there was a problem with our server or database the status code will be 500. 
       + apiKey (string) - Your class E API Key.
 
 + Request (application/x-www-form-urlencoded)
-    
+
     + Headers
 
             Authentication: HTTP Basic
