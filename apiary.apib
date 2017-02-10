@@ -77,11 +77,13 @@ This is the API to generate a new Spamty link with your email address.
 ### POST
 You need to do a post request.
 
-+ Parameters
++ Attributes
 
   + email (string) - The complete valid email address (`test@example.com`).
   + apiUser (string) - Your class E API Username.
   + apiKey (string) - Your class E API Key.
+
++ Request (application/x-www-form-urlencoded)
 
 + Response 200 (application/json)
 This is an example for a successful response. The HTTP status code will be 200.
@@ -162,13 +164,13 @@ With this API you can get an email address from a Spamty link.
 ### POST
 You need to send a POST request.
 
-+ Parameters
-      + m (integer) - The apiM parameter of the encryption request (a number).
++ Attributes
+      + m (number) - The apiM parameter of the encryption request (a number).
       + k (string) - The apiK parameter of the encryption request (a string with a-z A-z 0-9).
       + apiUser (string) - Your class D Username.
       + apiKey (string) - Your class E API Key.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
   + Headers
       Authentication: HTTP Basic
 
@@ -230,14 +232,14 @@ It is only for internal use. You need an additional authentication with HTTP Bas
 ### POST
 You need to send a POST request.
 
-+ Parameters
-      + n (integer) - The apiN parameter of the encryption request (a number).
-      + m (integer) - The apiM parameter of the encryption request (a number).
++ Attributes
+      + n (number) - The apiN parameter of the encryption request (a number).
+      + m (number) - The apiM parameter of the encryption request (a number).
       + k (string) - The apiK parameter of the encryption request (a string with a-z A-z 0-9).
       + apiUser (string) - Your class D Username.
       + apiKey (string) - Your class E API Key.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
   + Headers
       Authentication: HTTP Basic
 
@@ -296,14 +298,14 @@ If there was a problem with our server or database the status code will be 500. 
 
 ### POST
 
-+ Parameters
-      + n (integer) - The apiN parameter of the encryption request (a number).
++ Attributes
+      + n (number) - The apiN parameter of the encryption request (a number).
       + m (string) - The apiM parameter of the encryption request (string with a-z A-z 0-9).
       + k (string) - The apiK parameter of the encryption request (string with a-z A-z 0-9).
       + apiUser (string) - Your class D Username.
       + apiKey (string) - Your class E API Key.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
   + Headers
       Authentication: HTTP Basic
 
@@ -365,14 +367,14 @@ If there was a problem with our server or database the status code will be 500. 
 
 ### POST
 
-+ Parameters
-      + n (integer) - The apiN parameter of the encryption request (a number).
++ Attributes
+      + n (number) - The apiN parameter of the encryption request (a number).
       + m (string) - The apiM parameter of the encryption request (string with a-z A-z 0-9).
       + k (string) - The apiK parameter of the encryption request (string with a-z A-z 0-9).
       + apiUser (string) - Your class D Username.
       + apiKey (string) - Your class E API Key.
 
-+ Request
++ Request (application/x-www-form-urlencoded)
   + Headers
       Authentication: HTTP Basic
 
@@ -441,12 +443,14 @@ Please refer to the YOURLS API documentation for more details: https://yourls.or
 We changed some things for our custom API. These changes are shown here.
 You need to use POST since GET is not supported anymore.
 
-+ Parameters
++ Attributes
   + signature (string) -  This is the API key class S that can be requested via email.
-  + timestamp (integer) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
+  + timestamp (number) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
   + action (string) -  Use `shorturl` to get short URL for a link.
   + url (string) -  The Spamty link to shorten (like `https://spamty.eu/mail/v4/20/869656557u8375992c/`). You can use this API only for links from our website.
   + output (string) -  The output format: either `json`, `xml` or `simple`.
+
++ Request (application/x-www-form-urlencoded)
 
 + Response 200 (application/json)
 This is an example JSON response.
@@ -471,12 +475,14 @@ Please refer to the YOURLS API documentation for more details: https://yourls.or
 We changed some things for our custom API. These changes are shown here.
 You need to use POST since GET is not supported anymore.
 
-+ Parameters
++ Attributes
   + signature (string) -  This is the API key class S that can be requested via email.
-  + timestamp (integer) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
+  + timestamp (number) - An API key class S is valid for a limited time (currently for 6 months). You have to pass this parameter with the timestamp you got from us with your API key.
   + action (string) -  Use `expand` to get long URL of a shorturl.
   + shorturl (string) -  The short URL to expand (can be either `demo` or `https://3q3.de/demo`).
   + output (string) -  The output format: either `json`, `xml` or `simple`.
+
++ Request (application/x-www-form-urlencoded)
 
 + Response 200 (application/json)
 This is an example response.
