@@ -25,17 +25,17 @@ If there was an error the status code will be 400. Please look at the value for 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
             "url": "https://api.spamty.eu/decryption/v4.php",
             "version": "4.2"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /version API",
             "type": "object",
             "properties": {
@@ -61,7 +61,7 @@ If there was an error the status code will be 400. Please look at the value for 
                 }
             },
             "required": ["status", "statusDetails"],
-        }
+            }
 
 
 
@@ -90,7 +90,7 @@ If there was a problem with our server or database the status code will be 500. 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
@@ -99,11 +99,11 @@ If there was a problem with our server or database the status code will be 500. 
             "apiK": "869656557u8375992c",
             "urlPublic": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
             "mailCheck": "50fbf5f7"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /encryption API",
             "type": "object",
             "properties": {
@@ -141,7 +141,7 @@ If there was a problem with our server or database the status code will be 500. 
                 }
             },
             "required": ["status", "statusDetails", "info", "version"],
-        }
+            }
 
 
 
@@ -180,18 +180,18 @@ If there was a problem with our server or database the status code will be 500. 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
             "version": "4.2",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /decryption API v4",
             "type": "object",
             "properties": {
@@ -221,7 +221,7 @@ If there was a problem with our server or database the status code will be 500. 
                 }
             },
             "required": ["status", "statusDetails", "info", "version"],
-        }
+            }
 
 ## Decryption v3 [/decryption/v3]
 With this API you can get an email address from a Spamty link.
@@ -249,18 +249,18 @@ If there was a problem with our server or database the status code will be 500. 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
             "version": "v3",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /decryption API v3",
             "type": "object",
             "properties": {
@@ -290,7 +290,7 @@ If there was a problem with our server or database the status code will be 500. 
                 }
             },
             "required": ["status", "statusDetails", "info", "version"],
-        }
+            }
 
 ## Decryption v2 [/decryption/v2]
 
@@ -315,18 +315,18 @@ If there was a problem with our server or database the status code will be 500. 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
             "version": "v2",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /decryption API v2",
             "type": "object",
             "properties": {
@@ -356,7 +356,7 @@ If there was a problem with our server or database the status code will be 500. 
                 }
             },
             "required": ["status", "statusDetails", "info", "version"],
-        }
+            }
 
 
 
@@ -384,18 +384,18 @@ If there was a problem with our server or database the status code will be 500. 
 
     + Body
 
-        {
+            {
             "status": 1,
             "statusDetails": "ok",
             "info": "https://dev.spamty.eu/decryption/",
             "version": "v1",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
-        }
+            }
 
     + Schema
 
-        {
+            {
             "title": "Response /decryption API v1",
             "type": "object",
             "properties": {
@@ -425,7 +425,7 @@ If there was a problem with our server or database the status code will be 500. 
                 }
             },
             "required": ["status", "statusDetails", "info", "version"],
-        }
+            }
 
 
 
@@ -453,13 +453,13 @@ This is an example JSON response.
 
     + Body
 
-        {
-          "status": "success",
-          "message": "https://spamty.eu/mail/v4/20/869656557u8375992c/ added to database",
-          "title": "Demo Link",
-          "shorturl": "https://3q3.de/demo",
-          "statusCode": 200
-        }
+            {
+            "status": "success",
+            "message": "https://spamty.eu/mail/v4/20/869656557u8375992c/ added to database",
+            "title": "Demo Link",
+            "shorturl": "https://3q3.de/demo",
+            "statusCode": 200
+            }
 
 
 ## View short URL [/shorturl]
@@ -483,10 +483,10 @@ This is an example response.
 
     + Body
 
-        {
-          "keyword": "demo",
-          "shorturl": "https://3q3.de/demo",
-          "longurl": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
-          "message": "success",
-          "statusCode": 200
-        }
+            {
+            "keyword": "demo",
+            "shorturl": "https://3q3.de/demo",
+            "longurl": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
+            "message": "success",
+            "statusCode": 200
+            }
