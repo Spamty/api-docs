@@ -77,136 +77,6 @@ Please <a href="https://spamty.eu/contact.php">request them via our contact form
 
       
 
-  <h2 id="information">Information</h2><hr/>
-  <p><p>This is the version API that gives you some general information about all Spamty APIs.</p>
-</p>
-  
-    
-    <h3 id="versions-and-api-info">Versions and API info <small>/version/{api}</small></h3><hr/>
-    <p class="lead"><p>With this API you can get some information about the latest version of any Spamty API.</p>
-</p>
-        
-          <h3 id="information-versions-and-api-info-get"><span class="label label-success">GET</span> https://api.spamty.eu/version/{api}</h3>
-          <p><p>The API is located here: <a href="https://api.spamty.eu/version.php">https://api.spamty.eu/version.php</a>. Use HTTPS and send a GET request.</p>
-</p>
-
-            
-              <h3><span class="text-uppercase">Request</span></h3>
-              <p></p>
-              <p>Method: GET<br/>
-              Location: <pre>https://api.spamty.eu/version/{api}</pre></p>
-              
-                
-<h4>Parameters</h4>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Required</th>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-    <tr>
-      <td>required</td>
-      <td><code>api</code></td>
-      <td><code>string</code></td>
-      <td><p>The API type (values: shorturl, decryption, encryption)</p>
-</td>
-    </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-              
-              
-
-              
-              
-
-
-              <h3><span class="text-uppercase">Response</span></h3>
-              <p><p>This is an example for a successful response. The HTTP status code will be 200.
-If there was an error the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.</p>
-</p>
-
-              <h4>Headers</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Header</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                  <tr>
-                    <td>Status Code</td>
-                    <td><code>200</code></td>
-                  </tr>
-                  <tr>
-                    <td>Content Type</td>
-                    <td><code>application/json</code></td>
-                  </tr>
-                </tbody>
-              </table>
-
-              
-                <h4>Response Body</h4>
-                <pre class="prettyprint lang-json">{
-&#34;status&#34;: 1,
-&#34;statusDetails&#34;: &#34;ok&#34;,
-&#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
-&#34;url&#34;: &#34;https://api.spamty.eu/decryption/v4.php&#34;,
-&#34;version&#34;: &#34;4.2&#34;
-}
-</pre>
-              
-              
-                <h4>Response Schema</h4>
-                <pre class="prettyprint lang-json">{
-&#34;title&#34;: &#34;Response /version API&#34;,
-&#34;type&#34;: &#34;object&#34;,
-&#34;properties&#34;: {
-    &#34;status&#34;: {
-        &#34;description&#34;: &#34;Value 1 if successful, 0 for errors&#34;,
-        &#34;type&#34;: &#34;integer&#34;
-    },
-    &#34;statusDetails&#34;: {
-        &#34;description&#34;: &#34;Description of the error, if there was one&#34;,
-        &#34;type&#34;: &#34;string&#34;
-    },
-    &#34;info&#34;: {
-        &#34;description&#34;: &#34;URL with API documentation&#34;,
-        &#34;type&#34;: &#34;string&#34;
-    },
-    &#34;url&#34;: {
-        &#34;description&#34;: &#34;URL for the API&#34;,
-        &#34;type&#34;: &#34;string&#34;
-    },
-    &#34;version&#34;: {
-        &#34;description&#34;: &#34;Current API version&#34;,
-        &#34;type&#34;: &#34;string&#34;
-    }
-},
-&#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;],
-}
-</pre>
-              
-
-
-
-
-            
-        
-    
-  
-
   <h2 id="encryption">Encryption</h2><hr/>
   <p><p>This is the API to generate a new Spamty link with your email address.</p>
 
@@ -215,11 +85,11 @@ A v5 link can be used only with our decryption API v5. Older versions of our enc
 </p>
   
     
-    <h3 id="encryption-v5">Encryption v5 <small>/encryption</small></h3><hr/>
+    <h3 id="encryption-v5">Encryption v5 <small>/encryption/v5.php</small></h3><hr/>
     <p class="lead"><p>This is the API to generate a new Spamty link with your email address.</p>
 </p>
         
-          <h3 id="encryption-encryption-v5-post"><span class="label label-success">POST</span> https://api.spamty.eu/encryption</h3>
+          <h3 id="encryption-encryption-v5-post"><span class="label label-success">POST</span> https://api.spamty.eu/encryption/v5.php</h3>
           <p><p>You need to do a post request.</p>
 </p>
 
@@ -227,7 +97,7 @@ A v5 link can be used only with our decryption API v5. Older versions of our enc
               <h3><span class="text-uppercase">Request</span></h3>
               <p></p>
               <p>Method: POST<br/>
-              Location: <pre>https://api.spamty.eu/encryption</pre></p>
+              Location: <pre>https://api.spamty.eu/encryption/v5.php</pre></p>
               
               
                 
@@ -292,11 +162,11 @@ If there was a problem with our server or database the status code will be 500. 
                 <pre class="prettyprint lang-json">{
 &#34;status&#34;: 1,
 &#34;statusDetails&#34;: &#34;ok&#34;,
-&#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
-&#34;version&#34;: &#34;v4&#34;,
+&#34;info&#34;: &#34;https://dev.spamty.eu/#encryption-v5&#34;,
+&#34;version&#34;: &#34;v5&#34;,
 &#34;apiM&#34;: &#34;20&#34;,
 &#34;apiK&#34;: &#34;869656557u8375992c&#34;,
-&#34;urlPublic&#34;: &#34;https://spamty.eu/mail/v4/20/869656557u8375992c/&#34;,
+&#34;urlPublic&#34;: &#34;https://spamty.eu/mail/v5/20/869656557u8375992c/&#34;,
 &#34;mailCheck&#34;: &#34;50fbf5f7&#34;
 }
 </pre>
@@ -360,11 +230,11 @@ All decryption APIs are only for internal use. You need an additional authentica
 </p>
   
     
-    <h3 id="decryption-v4">Decryption v4 <small>/decryption/v4</small></h3><hr/>
+    <h3 id="decryption-v5">Decryption v5 <small>/decryption/v5.php</small></h3><hr/>
     <p class="lead"><p>With this API you can get an email address from a Spamty link.</p>
 </p>
         
-          <h3 id="decryption-decryption-v4-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v4</h3>
+          <h3 id="decryption-decryption-v5-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v5.php</h3>
           <p><p>You need to send a POST request.</p>
 </p>
 
@@ -372,7 +242,145 @@ All decryption APIs are only for internal use. You need an additional authentica
               <h3><span class="text-uppercase">Request</span></h3>
               <p></p>
               <p>Method: POST<br/>
-              Location: <pre>https://api.spamty.eu/decryption/v4</pre></p>
+              Location: <pre>https://api.spamty.eu/decryption/v5.php</pre></p>
+              
+              
+                
+<h4>Headers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td><code>Content-Type</code></td>
+      <td><code>application/x-www-form-urlencoded</code></td>
+    </tr>
+  
+    <tr>
+      <td><code>Authentication</code></td>
+      <td><code>HTTP Basic</code></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+              
+
+              
+              
+
+
+              <h3><span class="text-uppercase">Response</span></h3>
+              <p><p>This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for &ldquo;statusDetails&rdquo; to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.</p>
+</p>
+
+              <h4>Headers</h4>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Header</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <td><code>Content-Type</code></td>
+                    <td><code>application/x-www-form-urlencoded</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td><code>Authentication</code></td>
+                    <td><code>HTTP Basic</code></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>Status Code</td>
+                    <td><code>200</code></td>
+                  </tr>
+                  <tr>
+                    <td>Content Type</td>
+                    <td><code>application/json</code></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              
+                <h4>Response Body</h4>
+                <pre class="prettyprint lang-json">{
+&#34;status&#34;: 1,
+&#34;statusDetails&#34;: &#34;ok&#34;,
+&#34;info&#34;: &#34;https://dev.spamty.eu/decryption/&#34;,
+&#34;version&#34;: &#34;5&#34;,
+&#34;email&#34;: &#34;demo@spamty.eu&#34;,
+&#34;mailCheck&#34;: &#34;50fbf5f7&#34;
+}
+</pre>
+              
+              
+                <h4>Response Schema</h4>
+                <pre class="prettyprint lang-json">{
+&#34;title&#34;: &#34;Response /decryption API v4&#34;,
+&#34;type&#34;: &#34;object&#34;,
+&#34;properties&#34;: {
+    &#34;status&#34;: {
+        &#34;description&#34;: &#34;Value 1 for OK and 0 if an error occurred.&#34;,
+        &#34;type&#34;: &#34;integer&#34;
+    },
+    &#34;statusDetails&#34;: {
+        &#34;description&#34;: &#34;A description if there were any errors. Otherwise the value is ok.&#34;,
+        &#34;type&#34;: &#34;string&#34;
+    },
+    &#34;info&#34;: {
+        &#34;description&#34;: &#34;The URL where you can get some additional information about the API (this page).&#34;,
+        &#34;type&#34;: &#34;string&#34;
+    },
+    &#34;version&#34;: {
+        &#34;description&#34;: &#34;The version number.&#34;,
+        &#34;type&#34;: &#34;string&#34;
+    },
+    &#34;email&#34;: {
+        &#34;description&#34;: &#34;The email address.&#34;,
+        &#34;type&#34;: &#34;string&#34;
+    },
+    &#34;mailCheck&#34;: {
+        &#34;description&#34;: &#34;A crc32b hash of the email address&#34;,
+        &#34;type&#34;: &#34;string&#34;
+    }
+},
+&#34;required&#34;: [&#34;status&#34;, &#34;statusDetails&#34;, &#34;info&#34;, &#34;version&#34;],
+}
+</pre>
+              
+
+
+
+
+            
+        
+    
+  
+    
+    <h3 id="decryption-v4">Decryption v4 <small>/decryption/v4.php</small></h3><hr/>
+    <p class="lead"><p>With this API you can get an email address from a Spamty link.</p>
+</p>
+        
+          <h3 id="decryption-decryption-v4-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v4.php</h3>
+          <p><p>You need to send a POST request.</p>
+</p>
+
+            
+              <h3><span class="text-uppercase">Request</span></h3>
+              <p></p>
+              <p>Method: POST<br/>
+              Location: <pre>https://api.spamty.eu/decryption/v4.php</pre></p>
               
               
                 
@@ -498,12 +506,12 @@ If there was a problem with our server or database the status code will be 500. 
     
   
     
-    <h3 id="decryption-v3">Decryption v3 <small>/decryption/v3</small></h3><hr/>
+    <h3 id="decryption-v3">Decryption v3 <small>/decryption/v3.php</small></h3><hr/>
     <p class="lead"><p>With this API you can get an email address from a Spamty link.
 It is only for internal use. You need an additional authentication with HTTP Basic Auth.</p>
 </p>
         
-          <h3 id="decryption-decryption-v3-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v3</h3>
+          <h3 id="decryption-decryption-v3-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v3.php</h3>
           <p><p>You need to send a POST request.</p>
 </p>
 
@@ -511,7 +519,7 @@ It is only for internal use. You need an additional authentication with HTTP Bas
               <h3><span class="text-uppercase">Request</span></h3>
               <p></p>
               <p>Method: POST<br/>
-              Location: <pre>https://api.spamty.eu/decryption/v3</pre></p>
+              Location: <pre>https://api.spamty.eu/decryption/v3.php</pre></p>
               
               
                 
@@ -637,17 +645,17 @@ If there was a problem with our server or database the status code will be 500. 
     
   
     
-    <h3 id="decryption-v2">Decryption v2 <small>/decryption/v2</small></h3><hr/>
+    <h3 id="decryption-v2">Decryption v2 <small>/decryption/v2.php</small></h3><hr/>
     <p class="lead"></p>
         
-          <h3 id="decryption-decryption-v2-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v2</h3>
+          <h3 id="decryption-decryption-v2-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v2.php</h3>
           <p></p>
 
             
               <h3><span class="text-uppercase">Request</span></h3>
               <p></p>
               <p>Method: POST<br/>
-              Location: <pre>https://api.spamty.eu/decryption/v2</pre></p>
+              Location: <pre>https://api.spamty.eu/decryption/v2.php</pre></p>
               
               
                 
@@ -773,17 +781,17 @@ If there was a problem with our server or database the status code will be 500. 
     
   
     
-    <h3 id="decryption-v1">Decryption v1 <small>/decryption/v1</small></h3><hr/>
+    <h3 id="decryption-v1">Decryption v1 <small>/decryption/v1.php</small></h3><hr/>
     <p class="lead"></p>
         
-          <h3 id="decryption-decryption-v1-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v1</h3>
+          <h3 id="decryption-decryption-v1-post"><span class="label label-success">POST</span> https://api.spamty.eu/decryption/v1.php</h3>
           <p></p>
 
             
               <h3><span class="text-uppercase">Request</span></h3>
               <p></p>
               <p>Method: POST<br/>
-              Location: <pre>https://api.spamty.eu/decryption/v1</pre></p>
+              Location: <pre>https://api.spamty.eu/decryption/v1.php</pre></p>
               
               
                 
@@ -930,23 +938,6 @@ If there was a problem with our server or database the status code will be 500. 
 </ul>
 
 
-  <h4>Information</h4>
-
-<ul class="nav nav-sidebar">
-  
-    
-      
-        <li><a href="#versions-and-api-info">
-          
-            Versions and API info
-          
-        </a></li>
-      
-    
-  
-</ul>
-
-
   <h4>Encryption</h4>
 
 <ul class="nav nav-sidebar">
@@ -967,6 +958,16 @@ If there was a problem with our server or database the status code will be 500. 
   <h4>Decryption</h4>
 
 <ul class="nav nav-sidebar">
+  
+    
+      
+        <li><a href="#decryption-v5">
+          
+            Decryption v5
+          
+        </a></li>
+      
+    
   
     
       

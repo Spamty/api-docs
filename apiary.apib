@@ -16,66 +16,6 @@ Please [request them via our contact form](https://spamty.eu/contact.php).
 
 
 
-# Group Information
-This is the version API that gives you some general information about all Spamty APIs.
-
-
-# Versions and API info [/version/{api}]
-With this API you can get some information about the latest version of any Spamty API.
-
-## GET
-The API is located here: https://api.spamty.eu/version.php. Use HTTPS and send a GET request.
-
-+ Parameters
-
-  + api (string) - The API type (values: shorturl, decryption, encryption)
-
-+ Response 200 (application/json)
-This is an example for a successful response. The HTTP status code will be 200.
-If there was an error the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
-
-    + Body
-
-            {
-            "status": 1,
-            "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
-            "url": "https://api.spamty.eu/decryption/v4.php",
-            "version": "4.2"
-            }
-
-    + Schema
-
-            {
-            "title": "Response /version API",
-            "type": "object",
-            "properties": {
-                "status": {
-                    "description": "Value 1 if successful, 0 for errors",
-                    "type": "integer"
-                },
-                "statusDetails": {
-                    "description": "Description of the error, if there was one",
-                    "type": "string"
-                },
-                "info": {
-                    "description": "URL with API documentation",
-                    "type": "string"
-                },
-                "url": {
-                    "description": "URL for the API",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "Current API version",
-                    "type": "string"
-                }
-            },
-            "required": ["status", "statusDetails"],
-            }
-
-
-
 
 
 # Group Encryption
@@ -85,7 +25,7 @@ The current version is v5. Notice that the link that will be created contains th
 A v5 link can be used only with our decryption API v5. Older versions of our encryption API are not available anymore.
 
 
-## Encryption v5 [/encryption]
+## Encryption v5 [/encryption/v5.php]
 This is the API to generate a new Spamty link with your email address.
 
 ### POST
@@ -109,11 +49,11 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
-            "version": "v4",
+            "info": "https://dev.spamty.eu/#encryption-v5",
+            "version": "v5",
             "apiM": "20",
             "apiK": "869656557u8375992c",
-            "urlPublic": "https://spamty.eu/mail/v4/20/869656557u8375992c/",
+            "urlPublic": "https://spamty.eu/mail/v5/20/869656557u8375992c/",
             "mailCheck": "50fbf5f7"
             }
 
@@ -172,7 +112,76 @@ You need to use the API that corresponds to the encryption API that was used. Fo
 All decryption APIs are only for internal use. You need an additional authentication with HTTP Basic Auth header to use them.
 
 
-## Decryption v4 [/decryption/v4]
+## Decryption v5 [/decryption/v5.php]
+With this API you can get an email address from a Spamty link.
+
+### POST
+You need to send a POST request.
+
++ Attributes
+      + m (number) - The apiM parameter of the encryption request (a number).
+      + k (string) - The apiK parameter of the encryption request (a string with a-z A-z 0-9).
+      + apiUser (string) - Your class D Username.
+      + apiKey (string) - Your class E API Key.
+
++ Request (application/x-www-form-urlencoded)
+
+    + Headers
+
+            Authentication: HTTP Basic
+
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your parameters the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+            {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://dev.spamty.eu/decryption/",
+            "version": "5",
+            "email": "demo@spamty.eu",
+            "mailCheck": "50fbf5f7"
+            }
+
+    + Schema
+
+            {
+            "title": "Response /decryption API v4",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "The email address.",
+                    "type": "string"
+                },
+                "mailCheck": {
+                    "description": "A crc32b hash of the email address",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+            }
+
+## Decryption v4 [/decryption/v4.php]
 With this API you can get an email address from a Spamty link.
 
 ### POST
@@ -241,7 +250,7 @@ If there was a problem with our server or database the status code will be 500. 
             "required": ["status", "statusDetails", "info", "version"],
             }
 
-## Decryption v3 [/decryption/v3]
+## Decryption v3 [/decryption/v3.php]
 With this API you can get an email address from a Spamty link.
 It is only for internal use. You need an additional authentication with HTTP Basic Auth.
 
@@ -312,7 +321,7 @@ If there was a problem with our server or database the status code will be 500. 
             "required": ["status", "statusDetails", "info", "version"],
             }
 
-## Decryption v2 [/decryption/v2]
+## Decryption v2 [/decryption/v2.php]
 
 ### POST
 
@@ -383,7 +392,7 @@ If there was a problem with our server or database the status code will be 500. 
 
 
 
-## Decryption v1 [/decryption/v1]
+## Decryption v1 [/decryption/v1.php]
 
 ### POST
 
