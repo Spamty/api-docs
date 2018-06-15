@@ -6,19 +6,11 @@
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
 
 
-This is our API documentation which [can be viewed here](https://dev.spamty.eu/).
-And also on [apiary](http://docs.spamty.apiary.io/).
+This is our API documentation which can be viewed on [apiary](http://docs.spamty.apiary.io/).
 
 ## Build the docs
 
 The API documentation is in the [API Blueprint](https://apiblueprint.org/) file `apiary.apib`.
-
-The documentation (`index.html`) is generated with [snowboard](https://github.com/subosito/snowboard).
-Do not edit this HTML file! Only edit the API Blueprint file and the template (`template.html`) to generate the site.
-
-Run this command to generate the HTML file:
-
-    snowboard html -i apiary.apib -o index.html -t template.html
 
 ## Issues & Bugs
 
@@ -27,7 +19,7 @@ or [send me an email](https://3q3.de/spamty).
 
 ## License
 
-Copyright (c) 2017 by
+Copyright (c) 2018 by
 [Spamty team](https://github.com/Spamty) &
 [contributors](https://github.com/Spamty/api-docs/graphs/contributors)
 
@@ -46,6 +38,7 @@ You should have received a copy of the license along with this
 work. If not, see <https://creativecommons.org/licenses/by-nd/4.0/>.
 
 
+## Info
 
 *Support Spamty and donate Bitcoins to:*
 *1NRoifJBzLAKP3K6pkNikcrydENYw2EoF6*
