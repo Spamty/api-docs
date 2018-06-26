@@ -12,6 +12,8 @@ This is our API documentation which can be viewed on [apiary](http://docs.spamty
 
 The API documentation is in the [API Blueprint](https://apiblueprint.org/) file `apiary.apib`.
 
+The `master` branch is pushed to Apiary.io with Codeship (one way only). See: https://help.apiary.io/api_101/bitbucket-integration/ 
+
 ## Issues & Bugs
 
 Report issues and bugs [on Bitbucket](https://bitbucket.org/spamty/api-docs/issues)
