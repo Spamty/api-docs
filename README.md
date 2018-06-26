@@ -1,8 +1,8 @@
 # Spamty API Docs
 
-[![Open Issues](https://img.shields.io/github/issues/spamty/api-docs.svg)](https://github.com/Spamty/api-docs/issues)
+[![Open Issues](https://img.shields.io/bitbucket/issues/spamty/api-docs.svg)](https://bitbucket.org/spamty/api-docs/issues?status=open)
 
-[![License](https://img.shields.io/badge/license-CC--BY--ND_GNU--GPL--v3-blue.svg)](https://github.com/Spamty/api-docs/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-CC--BY--ND_GNU--GPL--v3-blue.svg)](https://bitbucket.org/spamty/api-docs/src/master/LICENSE.md)
 ![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
 
 
@@ -14,14 +14,12 @@ The API documentation is in the [API Blueprint](https://apiblueprint.org/) file 
 
 ## Issues & Bugs
 
-Report issues and bugs [on GitHub](https://github.com/Spamty/api-docs/issues)
+Report issues and bugs [on Bitbucket](https://bitbucket.org/spamty/api-docs/issues)
 or [send me an email](https://3q3.de/spamty).
 
 ## License
 
-Copyright (c) 2018 by
-[Spamty team](https://github.com/Spamty) &
-[contributors](https://github.com/Spamty/api-docs/graphs/contributors)
+Copyright (c) 2018 by Spamty team & contributors.
 
 The **source code of this API documentation** (especially HTML code)
 is licensed under the **GNU General Public License**
@@ -38,16 +36,8 @@ You should have received a copy of the license along with this
 work. If not, see <https://creativecommons.org/licenses/by-nd/4.0/>.
 
 
-## Info
+## Donate
 
 *Support Spamty and donate Bitcoins to:*
 *1NRoifJBzLAKP3K6pkNikcrydENYw2EoF6*
 
-
-
-Built with
-[snowboard](https://github.com/subosito/snowboard),
-[API Blueprint](https://apiblueprint.org/),
-[Prettify](https://github.com/google/code-prettify/),
-[Bootstrap](https://getbootstrap.com/) and
-[GitHub Pages](https://pages.github.com).
