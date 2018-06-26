@@ -10,4 +10,4 @@ pipelines:
     - step:
         script:
           - echo "fetch"
-          - ssh -tt $SSH_USER@$SSH_SERVER -p$SSH_PORT && cd $GIT_REPO_LOKAL && git fetch $GIT_REPO_ORIGIN && chmod -R 770 $GIT_REPO_LOKAL
+          - ssh -tt $SSH_USER@$SSH_SERVER -p$SSH_PORT "cd $GIT_REPO_LOKAL && git fetch $GIT_REPO_ORIGIN && chmod -R 770 $GIT_REPO_LOKAL"
