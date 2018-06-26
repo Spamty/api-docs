@@ -9,4 +9,4 @@ pipelines:
   default:
     - step:
         script:
-          - ssh $SSH_USER@$SSH_SERVER -p$SSH_PORT ls -l /var/www
+          - ssh $SSH_USER@$SSH_SERVER -p$SSH_PORT cd $GIT_REPO_LOKAL ls -l
