@@ -9,4 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - ssh $SSH_USER@$SSH_SERVER -p$SSH_PORT && cd $GIT_REPO_LOKAL && ls -l 
+          - echo "fetch"
+          - ssh -tt $SSH_USER@$SSH_SERVER -p$SSH_PORT && cd $GIT_REPO_LOKAL && git fetch $GIT_REPO_ORIGIN && chmod -R 770 $GIT_REPO_LOKAL
