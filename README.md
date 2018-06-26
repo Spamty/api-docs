@@ -14,6 +14,8 @@ The API documentation is in the [API Blueprint](https://apiblueprint.org/) file 
 
 The `master` branch is pushed to Apiary.io with Codeship (one way only). See: https://help.apiary.io/api_101/bitbucket-integration/ 
 
+And pushed to git server via Bitbucket pipelines.
+
 ## Issues & Bugs
 
 Report issues and bugs [on Bitbucket](https://bitbucket.org/spamty/api-docs/issues)
