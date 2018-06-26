@@ -9,5 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - ssh spamty@84.200.76.123 -p9030 
+          - ssh $SSH_USER@$SSH_SERVER -p$SSH_PORT 
           - ls -l /var/www
