@@ -14,8 +14,6 @@ The API documentation is in the [API Blueprint](https://apiblueprint.org/) file 
 
 The `master` branch is pushed to Apiary.io with Codeship (one way only). See: https://help.apiary.io/api_101/bitbucket-integration/ 
 
-And pushed to git server via Bitbucket pipelines.
-
 ## Issues & Bugs
 
 Report issues and bugs [on Bitbucket](https://bitbucket.org/spamty/api-docs/issues)
@@ -23,9 +21,9 @@ or [send me an email](https://3q3.de/spamty).
 
 ## License
 
-Copyright (c) 2018 by Spamty team & contributors.
+Copyright (c) 2019 by Spamty team & contributors.
 
-The **source code of this API documentation** (especially HTML code)
+The **source code of this API documentation**
 is licensed under the **GNU General Public License**
 version 3 as published by the Free Software Foundation.
 
