@@ -35,9 +35,12 @@ You need to do a post request.
 
 + Attributes
 
-  + email (string) - The complete valid email address (`test@example.com`).
-  + apiUser (string) - Your class E API Username.
-  + apiKey (string) - Your class E API Key.
+  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address. Default is `mail`.
+  + email (string) - The validated email address (`test@example.com`). Always required.
+  + text (string) - The text if you are using `text` mode.
+  + allowCleartext (bool) - `true` to allow Spamty to store the email address in cleartext. `true` is required when using `text` mode.
+  + apiUser (string) - Your class E API username.
+  + apiKey (string) - Your class E secret API key.
 
 + Request (application/x-www-form-urlencoded)
 
@@ -51,7 +54,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/#encryption-v5",
+            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v5",
             "version": "v5",
             "apiM": "20",
             "apiK": "869656557u8375992c",
@@ -74,7 +77,7 @@ If there was a problem with our server or database the status code will be 500. 
                     "type": "string"
                 },
                 "info": {
-                    "description": "The URL where you can get some additional information about the API (this page).",
+                    "description": "The URL where you can get some additional information about the API.",
                     "type": "string"
                 },
                 "version": {
@@ -143,7 +146,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
+            "info": "https://spamty.docs.apiary.io/#reference/decryption/decryption-v5",
             "version": "5",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
@@ -152,7 +155,7 @@ If there was a problem with our server or database the status code will be 500. 
     + Schema
 
             {
-            "title": "Response /decryption API v4",
+            "title": "Response /decryption API v5",
             "type": "object",
             "properties": {
                 "status": {
@@ -212,7 +215,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
+            "info": "https://spamty.docs.apiary.io/#reference/decryption/decryption-v4",
             "version": "4.2",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
@@ -283,7 +286,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
+            "info": "https://spamty.docs.apiary.io/#reference/decryption/decryption-v3",
             "version": "v3",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
@@ -351,7 +354,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
+            "info": "https://spamty.docs.apiary.io/#reference/decryption/decryption-v2",
             "version": "v2",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
@@ -422,7 +425,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://dev.spamty.eu/decryption/",
+            "info": "https://spamty.docs.apiary.io/#reference/decryption/decryption-v1",
             "version": "v1",
             "email": "demo@spamty.eu",
             "mailCheck": "50fbf5f7"
