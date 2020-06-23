@@ -1,10 +1,18 @@
 # Spamty API Docs
 
+[![License](https://img.shields.io/badge/license-CC--BY--ND-blue.svg)](https://bitbucket.org/spamty/api-docs/src/master/LICENSE.md)
 [![Open Issues](https://img.shields.io/bitbucket/issues/spamty/api-docs.svg)](https://bitbucket.org/spamty/api-docs/issues?status=open)
 
-[![License](https://img.shields.io/badge/license-CC--BY--ND-blue.svg)](https://bitbucket.org/spamty/api-docs/src/master/LICENSE.md)
-![Twitter](https://img.shields.io/twitter/follow/Spamty.svg?style=social&label=Follow&maxAge=2592000)
+[![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fspamty.docs.apiary.io%2F)](https://stats.uptimerobot.com/E9XBli1k6) 
+[![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m778335672-accb675bd9135818b5d96bf1)](https://stats.uptimerobot.com/E9XBli1k6) 
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/spamty?style=social)](https://twitter.com/Spamty) 
+[![Mastodon Follow](https://img.shields.io/static/v1?label=@spamty@fosstodon.org&message=%20&style=social&logo=mastodon)](https://fosstodon.org/@spamty) 
+[![Keybase](https://img.shields.io/static/v1?label=Keybase&message=%20&style=social&logo=keybase)](https://keybase.io/spamty)
+[![Bitbucket](https://img.shields.io/static/v1?label=Bitbucket&message=%20&style=social&logo=bitbucket)](https://bitbucket.org/spamty/)
+
+[![Email](https://img.shields.io/badge/Email-contact@spamty.eu-grey)](https://spamty.eu/contact.php) 
+[![PGP Key](https://img.shields.io/badge/PGP-ACA54A165C6F2311-blue)](https://spamty.eu/contact.php) 
 
 This is our API documentation which can be viewed on [apiary](http://docs.spamty.apiary.io/).
 
