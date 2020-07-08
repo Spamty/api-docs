@@ -23,11 +23,11 @@ Please [request them via our contact form](https://spamty.eu/contact.php).
 # Group Encryption
 This is the API to generate a new Spamty link with your email address.
 
-The current version is v5. Notice that the link that will be created contains the version.
-A v5 link can be used only with our decryption API v5. Older versions of our encryption API are not available anymore.
+The current version is v6. Notice that the link that will be created contains the version.
+A v2 link can be used only with our decryption API v2, v3 with v3 and so on. Older versions of our encryption API are not available anymore.
 
 
-## Encryption v5 [/encryption/v5.php]
+## Encryption v6 [/encryption/v6.php]
 This is the API to generate a new Spamty link with your email address.
 
 ### POST
@@ -35,10 +35,10 @@ You need to do a post request.
 
 + Attributes
 
-  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address. Default is `mail`.
+  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address.
   + email (string) - The validated email address (`test@example.com`). Always required.
   + text (string) - The text if you are using `text` mode.
-  + allowCleartext (boolean) - `true` to allow Spamty to store the email address in cleartext. `true` is required when using `text` mode.
+  + allowCleartext (boolean) - `true` or `1` to allow Spamty to store the email address in cleartext; otherwise leave this empty. `true` is required when using `text` mode.
   + apiUser (string) - Your class E API username.
   + apiKey (string) - Your class E secret API key.
 
@@ -55,10 +55,10 @@ If there was a problem with our server or database the status code will be 500. 
             "status": 1,
             "statusDetails": "ok",
             "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v5",
-            "version": "v5",
+            "version": "v6",
             "apiM": "20",
             "apiK": "869656557u8375992c",
-            "urlPublic": "https://spamty.eu/mail/v5/20/869656557u8375992c/",
+            "urlPublic": "https://spamty.eu/mail/v6/20/869656557u8375992c/",
             "mailCheck": "50fbf5f7"
             }
 
@@ -175,7 +175,7 @@ If there was a problem with our server or database the status code will be 500. 
                     "type": "string"
                 },
                 "email": {
-                    "description": "The email address.",
+                    "description": "The email address or the text (for `text` mode).",
                     "type": "string"
                 },
                 "mailCheck": {
