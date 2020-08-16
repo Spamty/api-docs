@@ -39,9 +39,9 @@ You need to do a post request.
 + Attributes
 
   + mode (string) - Use `email` for a link to an email address or `text` for any other information like phone number or address. (required)
-  + ciphertext (string) - The javascript-encrypted content. (required)
-  + salt (string) - The salt used for javascript-encryption. (required)
-  + email (string) - A valid email address; permission to store the email address in cleartext is implied. (optional)
+  + ciphertext (string) - The javascript-encrypted content. Urlencoded. (required)
+  + salt (string) - The salt used for javascript-encryption. Urlencoded. (required)
+  + email (string) - A valid email address; permission to store the email address in cleartext is implied. Urlencoded. (optional)
   + apiUser (string) - Your class E API username. (required)
   + apiKey (string) - Your class E secret API key. (required)
 
