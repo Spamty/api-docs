@@ -14,12 +14,11 @@
 [![Email](https://img.shields.io/badge/Email-contact@spamty.eu-grey)](https://spamty.eu/contact.php)
 [![PGP Key](https://img.shields.io/badge/PGP-ACA54A165C6F2311-blue)](https://spamty.eu/contact.php)
 
-This is our API documentation which can be viewed on [apiary](http://docs.spamty.apiary.io/).
+This is our API documentation which can be viewed on [apiary](https://docs.spamty.apiary.io/).
 
 ## Build the docs
 
 The API documentation is in the [API Blueprint](https://apiblueprint.org/) file `apiary.apib`.
-
 The `master` branch is synced with apiary.io.
 
 ## Issues & Bugs
