@@ -26,8 +26,76 @@ The decryption API is only for internal use. You need an additional authenticati
 # Group Encryption
 This is the API to generate a new Spamty link with your email address.
 
-The current version is v6. Notice that the link that will be created contains the version.
+The current version is v7. Notice that the link that will be created contains the version.
 A v2 link can be used only with our decryption API v2, v3 with v3 and so on. Older versions of our encryption API are not available anymore.
+
+
+## Encryption v7 [/encryption/v7.php]
+This is the API to generate a new Spamty link with your email address.
+
+### POST
+You need to do a post request.
+
++ Attributes
+
+  + mode (string) - Use `email` for a link to an email address or `text` for any other information like phone number or address. (required)
+  + ciphertext (string) - The javascript-encrypted content. (required)
+  + salt (string) - The salt used for javascript-encryption. (required)
+  + email (string) - A valid email address; permission to store the email address in cleartext is implied. (optional)
+  + apiUser (string) - Your class E API username. (required)
+  + apiKey (string) - Your class E secret API key. (required)
+
++ Request (application/x-www-form-urlencoded)
+
++ Response 200 (application/json)
+This is an example for a successful response. The HTTP status code will be 200.
+If there was an error with your data the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
+If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
+
+    + Body
+
+            {
+            "status": 1,
+            "statusDetails": "ok",
+            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v7",
+            "version": "v6",
+            "apiM": "20",
+            "urlPublic": "https://spamty.eu/mail/v6/20/YOURKEY/YOURIV/"
+            }
+
+    + Schema
+
+            {
+            "title": "Response /encryption API",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "description": "Value 1 for OK and 0 if an error occurred.",
+                    "type": "integer"
+                },
+                "statusDetails": {
+                    "description": "A description if there were any errors. Otherwise the value is ok.",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "The URL where you can get some additional information about the API.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version number.",
+                    "type": "string"
+                },
+                "apiM": {
+                    "description": "The m parameter for the decryption request.",
+                    "type": "integer"
+                },
+                "urlPublic": {
+                    "description": "The public decryption url with placeholders for key and iv from javascript encrytion.",
+                    "type": "string"
+                }
+            },
+            "required": ["status", "statusDetails", "info", "version"],
+            }
 
 
 ## Encryption v6 [/encryption/v6.php]
@@ -57,7 +125,7 @@ If there was a problem with our server or database the status code will be 500. 
             {
             "status": 1,
             "statusDetails": "ok",
-            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v5",
+            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v6",
             "version": "v6",
             "apiM": "20",
             "apiK": "869656557u8375992c",
