@@ -1,4 +1,4 @@
-Copyright (c) 2017 by
+Copyright (c) 2020 by
 [Spamty team](https://github.com/Spamty) &
 [contributors](https://github.com/Spamty/api-docs/graphs/contributors)
 
