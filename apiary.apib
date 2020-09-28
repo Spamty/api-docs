@@ -214,7 +214,45 @@ If there was a problem with our server or database the status code will be 500. 
 
 + Attributes
   + $m (integer) - id in database
-  + $k (string) - encryption key
+  + $k (string; [a-z0-9]{24}) - encryption key
+
++ Response 200 (array)
+  + status (integer) - 200
+  + statusDetails (string) - ok
+  + cleartext (string) - decrypted email address or text
+  + mode (string) - either "email" or "text" mode
+
++ Error 4801 (array)
+  + status (integer) - 4801
+  + statusDetails (string) - This link was invalid (m)
+  + cleartext (string) - empty string
+  + mode (string) - empty string
+
++ Error 4802 (array)
+  + status (integer) - 4802
+  + statusDetails (string) - This link was invalid (k)
+  + cleartext (string) - empty string
+  + mode (string) - empty string
+
++ Error 5801 (array)
+  + status (integer) - 5801
+  + statusDetails (string) - Problem when connecting to the database
+  + cleartext (string) - empty string
+  + mode (string) - empty string
+
++ Error 5802 (array)
+  + status (integer) - 5802
+  + statusDetails (string) - We found no data in our database
+  + cleartext (string) - empty string
+  + mode (string) - empty string
+
+
+## spamtyDecrypt() [includes/functions_v5.php]
+## spamtyDecrypt() [includes/functions_v4.php]
+
++ Attributes
+  + $m (integer) - id in database
+  + $k (string; [a-zA-Z0-9]{18}) - encryption key
 
 + Response 200 (array)
   + status (integer) - 200
