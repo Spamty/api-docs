@@ -2,9 +2,10 @@ FORMAT: 1A
 HOST: https://api.spamty.eu/
 
 # Spamty API
-This is the API for Spamty.eu.
+This is the API documentation for Spamty.eu.
 
-You can use it to generate a Spamty link (Encryption API) and to view an email address from a Spamty link (Decryption API).
+You can use it to generate a new Spamty link (Encryption API) and to view an email address from a Spamty link (Decryption API).
+The documentation contains information for our internal PHP functions and the accessible REST API.
 
 Feel free to edit our API documentation on [GitHub](https://github.com/spamty/api-docs).
 
@@ -22,8 +23,36 @@ The decryption API is only for internal use. You need an additional authenticati
 
 
 
+# Group Encryption: PHP functions
 
-# Group Encryption
+## spamtyEncrypt() [functions_v6.php]
+
+### GET
+
++ Attributes
+  + $encData (string) - email address or text to be encrypted
+  + $encMode (string) - either "email" or "text" mode
+  + $emailCleartext (string) - email address if it should be stored in cleartext
+
++ Response 200 (array)
+  + status (integer) - 200
+  + statusDetails (string) - ok
+  + url (string) - URL of the Spamty link
+
++ Response 5701 (array)
+  + status (integer) - 5701
+  + statusDetails (string) - Problem when connecting to the database
+  + url (string) - empty string
+
++ Response 5702 (array)
+  + status (integer) - 5702
+  + statusDetails (string) - Problem when executing database statement
+  + url (string) - empty string
+
+
+
+
+# Group Encryption: REST API
 This is the API to generate a new Spamty link with your email address.
 
 The current version is v7. Notice that the link that will be created contains the version.
