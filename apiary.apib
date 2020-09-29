@@ -147,9 +147,9 @@ This is the API to generate a new Spamty link with your email address.
 
 + Attributes
 
-  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address
-  + encData (string) - the email (for `email` mode) or any other text (for `text` mode)
-  + emailCleartext (string) - the email address to store in cleartext; is required when using `text` mode
+  + encMode (string) - use "email" to get a link to an email address or "text" to enter any other information like phone number or address
+  + encData (string) - the email address (for "email" mode) or any other text (for "text" mode)
+  + emailCleartext (string) - email address if it should be stored in cleartext; is required when using "text" mode
   + apiUser (string) - your API username
   + apiKey (string) - your secret API key
 
@@ -163,11 +163,7 @@ This is an example for a successful response. The HTTP status code will be 200.
             {
             "status": 200,
             "statusDetails": "ok",
-            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v6",
-            "version": "v6",
-            "apiM": "321",
-            "apiK": "503403c9cda77fde79fc6297",
-            "urlPublic": "https://spamty.eu/show/v6/321/503403c9cda77fde79fc6297/"
+            "url": "https://spamty.eu/show/v6/321/503403c9cda77fde79fc6297/"
             }
 
 + Response 400 (application/json)
@@ -176,7 +172,9 @@ If there was any error the status code will be 400. Please look at the error cod
     + Body
 
             {
-
+            "status": 4701,
+            "statusDetails": "This was no valid email address",
+            "url": ""
             }
 
 
