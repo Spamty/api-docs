@@ -25,6 +25,35 @@ The decryption API is only for internal use. You need an additional authenticati
 
 # Group Encryption: PHP functions
 
+## spamtyEncrypt() [includes/functions_v7.php]
+
++ Attributes
+  + $encCiphertext (string) - encrypted email address or text = ciphertext
+  + $encSalt (string) - encryption salt
+  + $encMode (string) - only "email" mode for now
+  + $emailCleartext (string) - email address if it should be stored in cleartext
+
++ Response 200 (array)
+  + status (integer) - 200
+  + statusDetails (string) - ok
+  + id (integer) - the id-part for the Spamty URL
+
++ Error 4701 (array)
+  + status (integer) - 4701
+  + statusDetails (string) - There was a problem with the ciphertext
+
++ Error 4702 (array)
+  + status (integer) - 4702
+  + statusDetails (string) - There was a problem with the salt
+
++ Error 5701 (array)
+  + status (integer) - 5701
+  + statusDetails (string) - Problem when connecting to the database
+
++ Error 5702 (array)
+  + status (integer) - 5702
+  + statusDetails (string) - Problem when executing database statement
+
 ## spamtyEncrypt() [includes/functions_v6.php]
 
 + Attributes
@@ -130,6 +159,34 @@ If there was any error the status code will be 400. Please look at the error cod
 
 # Group Decryption: PHP functions
 
+## spamtyDecrypt() [includes/functions_v7.php]
+
++ Attributes
+  + $m (integer) - id in database
+
++ Response 200 (array)
+  + status (integer) - 200
+  + statusDetails (string) - ok
+  + cleartext (string) - decrypted email address or text
+  + mode (string) - either "email" or "text" mode
+
++ Error 4801 (array)
+  + status (integer) - 4801
+  + statusDetails (string) - This link was invalid (m)
+
++ Error 4802 (array)
+  + status (integer) - 4802
+  + statusDetails (string) - This link was invalid (k)
+
++ Error 5801 (array)
+  + status (integer) - 5801
+  + statusDetails (string) - Problem when connecting to the database
+
++ Error 5802 (array)
+  + status (integer) - 5802
+  + statusDetails (string) - We found no data in our database
+
+
 ## spamtyDecrypt() [includes/functions_v6.php]
 
 + Attributes
@@ -142,29 +199,7 @@ If there was any error the status code will be 400. Please look at the error cod
   + cleartext (string) - decrypted email address or text
   + mode (string) - either "email" or "text" mode
 
-+ Error 4801 (array)
-  + status (integer) - 4801
-  + statusDetails (string) - This link was invalid (m)
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 4802 (array)
-  + status (integer) - 4802
-  + statusDetails (string) - This link was invalid (k)
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 5801 (array)
-  + status (integer) - 5801
-  + statusDetails (string) - Problem when connecting to the database
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 5802 (array)
-  + status (integer) - 5802
-  + statusDetails (string) - We found no data in our database
-  + cleartext (empty string)
-  + mode (empty string)
++ for errors see above
 
 
 ## spamtyDecrypt() [includes/functions_v5.php]
@@ -177,8 +212,8 @@ If there was any error the status code will be 400. Please look at the error cod
 + Response 200 (array)
   + status (integer) - 200
   + statusDetails (string) - ok
-  + cleartext (empty string) - decrypted email address or text
-  + mode (empty string) - either "email" or "text" mode
+  + cleartext (string) - decrypted email address or text
+  + mode (string) - either "email" or "text" mode
 
 + for errors see above
 
