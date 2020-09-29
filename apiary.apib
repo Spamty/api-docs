@@ -78,28 +78,11 @@ The decryption API is only for internal use. You need an additional authenticati
 # Group Encryption: REST API
 This is the API to generate a new Spamty link with your email address.
 
-The current version is v7. Notice that the link that will be created contains the version.
-A v2 link can be used only with our decryption API v2, v3 with v3 and so on. Older versions of our encryption API are not available anymore.
+The current version is v6 (v7 with Javascript is not available as public REST API).
+Older versions of our encryption API are not available anymore.
 
-
-## Encryption v7 [/xxxxxx]
-This is the API to generate a new Spamty link with your email address.
-
-### POST
-You need to do a post request.
-
-+ Attributes
-
-  + mode (string) - Use `email` for a link to an email address or `text` for any other information like phone number or address. (required)
-  + ciphertext (string) - The javascript-encrypted content. Urlencoded. (required)
-  + salt (string) - The salt used for javascript-encryption. Urlencoded. (required)
-  + email (string) - A valid email address; permission to store the email address in cleartext is implied. Urlencoded. (optional)
-  + apiUser (string) - Your class E API username. (required)
-  + apiKey (string) - Your class E secret API key. (required)
-
-+ Request (application/x-www-form-urlencoded)
-
-
+Notice that the link that will be created contains the version.
+A v4 link can be used only with our decryption API v4, v5 with v5 and so on.
 
 
 ## Encryption v6 [/api/encryption/v6.php]
