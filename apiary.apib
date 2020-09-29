@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://api.spamty.eu/
+HOST: https://spamty.eu/
 
 # Spamty API
 This is the API documentation for Spamty.eu.
@@ -37,15 +37,30 @@ The decryption API is only for internal use. You need an additional authenticati
   + statusDetails (string) - ok
   + url (string) - URL of the Spamty link
 
++ Error 4701 (array)
+  + status (integer) - 4701
+  + statusDetails (string) - This was no valid email address
+  + url (empty string)
+
++ Error 4702 (array)
+  + status (integer) - 4702
+  + statusDetails (string) - The text was too long
+  + url (empty string)
+
++ Error 4703 (array)
+  + status (integer) - 4703
+  + statusDetails (string) - This was no valid email address
+  + url (empty string)
+
 + Error 5701 (array)
   + status (integer) - 5701
   + statusDetails (string) - Problem when connecting to the database
-  + url (string) - empty string
+  + url (empty string)
 
 + Error 5702 (array)
   + status (integer) - 5702
   + statusDetails (string) - Problem when executing database statement
-  + url (string) - empty string
+  + url (empty string)
 
 
 
@@ -57,7 +72,7 @@ The current version is v7. Notice that the link that will be created contains th
 A v2 link can be used only with our decryption API v2, v3 with v3 and so on. Older versions of our encryption API are not available anymore.
 
 
-## Encryption v7 [/encryption/v7.php]
+## Encryption v7 [/xxxxxx]
 This is the API to generate a new Spamty link with your email address.
 
 ### POST
@@ -125,81 +140,43 @@ If there was a problem with our server or database the status code will be 500. 
             }
 
 
-## Encryption v6 [/encryption/v6.php]
+## Encryption v6 [/api/encryption/v6.php]
 This is the API to generate a new Spamty link with your email address.
 
 ### POST
-You need to do a post request.
 
 + Attributes
 
-  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address.
-  + email (string) - The validated email address (`test@example.com`). Always required.
-  + text (string) - The text if you are using `text` mode.
-  + allowCleartext (boolean) - `true` or `1` to allow Spamty to store the email address in cleartext; otherwise leave this empty. `true` is required when using `text` mode.
-  + apiUser (string) - Your class E API username.
-  + apiKey (string) - Your class E secret API key.
+  + mode (string) - use `email` to get a link to an email address or `text` to enter any other information like phone number or address
+  + encData (string) - the email (for `email` mode) or any other text (for `text` mode)
+  + emailCleartext (string) - the email address to store in cleartext; is required when using `text` mode
+  + apiUser (string) - your API username
+  + apiKey (string) - your secret API key
 
 + Request (application/x-www-form-urlencoded)
 
 + Response 200 (application/json)
 This is an example for a successful response. The HTTP status code will be 200.
-If there was an error with your data the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
-If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
 
     + Body
 
             {
-            "status": 1,
+            "status": 200,
             "statusDetails": "ok",
             "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v6",
             "version": "v6",
-            "apiM": "20",
-            "apiK": "869656557u8375992c",
-            "urlPublic": "https://spamty.eu/mail/v6/20/869656557u8375992c/",
-            "mailCheck": "50fbf5f7"
+            "apiM": "321",
+            "apiK": "503403c9cda77fde79fc6297",
+            "urlPublic": "https://spamty.eu/show/v6/321/503403c9cda77fde79fc6297/"
             }
 
-    + Schema
++ Response 400 (application/json)
+If there was any error the status code will be 400. Please look at the error code and the error message to indentify the problem.
+
+    + Body
 
             {
-            "title": "Response /encryption API",
-            "type": "object",
-            "properties": {
-                "status": {
-                    "description": "Value 1 for OK and 0 if an error occurred.",
-                    "type": "integer"
-                },
-                "statusDetails": {
-                    "description": "A description if there were any errors. Otherwise the value is ok.",
-                    "type": "string"
-                },
-                "info": {
-                    "description": "The URL where you can get some additional information about the API.",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "The version number.",
-                    "type": "string"
-                },
-                "apiM": {
-                    "description": "The m parameter for the decryption request.",
-                    "type": "integer"
-                },
-                "apiK": {
-                    "description": "The k parameter for the decryption request. A string with no special chars.",
-                    "type": "string"
-                },
-                "urlPublic": {
-                    "description": "The public decryption url which can be shared.",
-                    "type": "string"
-                },
-                "mailCheck": {
-                    "description": "crc32b hash of the email address",
-                    "type": "string"
-                }
-            },
-            "required": ["status", "statusDetails", "info", "version"],
+
             }
 
 
@@ -225,26 +202,26 @@ If there was a problem with our server or database the status code will be 500. 
 + Error 4801 (array)
   + status (integer) - 4801
   + statusDetails (string) - This link was invalid (m)
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 4802 (array)
   + status (integer) - 4802
   + statusDetails (string) - This link was invalid (k)
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 5801 (array)
   + status (integer) - 5801
   + statusDetails (string) - Problem when connecting to the database
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 5802 (array)
   + status (integer) - 5802
   + statusDetails (string) - We found no data in our database
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 
 ## spamtyDecrypt() [includes/functions_v5.php]
@@ -257,32 +234,32 @@ If there was a problem with our server or database the status code will be 500. 
 + Response 200 (array)
   + status (integer) - 200
   + statusDetails (string) - ok
-  + cleartext (string) - decrypted email address or text
-  + mode (string) - either "email" or "text" mode
+  + cleartext (empty string) - decrypted email address or text
+  + mode (empty string) - either "email" or "text" mode
 
 + Error 4801 (array)
   + status (integer) - 4801
   + statusDetails (string) - This link was invalid (m)
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 4802 (array)
   + status (integer) - 4802
   + statusDetails (string) - This link was invalid (k)
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 5801 (array)
   + status (integer) - 5801
   + statusDetails (string) - Problem when connecting to the database
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 + Error 5802 (array)
   + status (integer) - 5802
   + statusDetails (string) - We found no data in our database
-  + cleartext (string) - empty string
-  + mode (string) - empty string
+  + cleartext (empty string)
+  + mode (empty string)
 
 
 
@@ -294,7 +271,7 @@ All decryption APIs are only for internal use. You need an additional authentica
 
 These versions of the decryption API are not available anymore: v1.
 
-## Decryption v7 [/decryption/v7.php]
+## Decryption v7 [/xxxxxxxxxxxxxxx]
 With this API you can get an email address from a Spamty link.
 
 ### POST
@@ -365,7 +342,7 @@ If there was a problem with our server or database the status code will be 500. 
 
 
 
-## Decryption v6 [/decryption/v6.php]
+## Decryption v6 [/xxxxxxxxxxxxxxx]
 With this API you can get an email address from a Spamty link.
 
 ### POST
@@ -435,7 +412,7 @@ If there was a problem with our server or database the status code will be 500. 
             }
 
 
-## Decryption v5 [/decryption/v5.php]
+## Decryption v5 [/xxxxxxxxxxxxxxx]
 With this API you can get an email address from a Spamty link.
 
 ### POST
@@ -504,7 +481,7 @@ If there was a problem with our server or database the status code will be 500. 
             "required": ["status", "statusDetails", "info", "version"],
             }
 
-## Decryption v4 [/decryption/v4.php]
+## Decryption v4 [/xxxxxxxxxxxxxxx]
 With this API you can get an email address from a Spamty link.
 
 ### POST
@@ -573,7 +550,7 @@ If there was a problem with our server or database the status code will be 500. 
             "required": ["status", "statusDetails", "info", "version"],
             }
 
-## Decryption v3 [/decryption/v3.php]
+## Decryption v3 [/x]
 As [announced](https://spamty.eu/feed.php#item6) this API will become invalid on 2020/11/30.
 
 ### POST
@@ -643,7 +620,7 @@ If there was a problem with our server or database the status code will be 500. 
             "required": ["status", "statusDetails", "info", "version"],
             }
 
-## Decryption v2 [/decryption/v2.php]
+## Decryption v2 [/x]
 As [announced](https://spamty.eu/feed.php#item6) this API will become invalid on 2020/11/30.
 
 ### POST
