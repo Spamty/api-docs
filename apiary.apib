@@ -37,6 +37,16 @@ The decryption API is only for internal use. You need an additional authenticati
   + statusDetails (string) - ok
   + url (string) - URL of the Spamty link
 
++ Error 4301 (array)
+  + status (integer) - 4301
+  + statusDetails (string) - apiUser or apiKey is not set
+  + url (empty string)
+
++ Error 4302 (array)
+  + status (integer) - 4302
+  + statusDetails (string) - apiUser or apiKey is invalid
+  + url (empty string)
+
 + Error 4701 (array)
   + status (integer) - 4701
   + statusDetails (string) - This was no valid email address
@@ -89,55 +99,7 @@ You need to do a post request.
 
 + Request (application/x-www-form-urlencoded)
 
-+ Response 200 (application/json)
-This is an example for a successful response. The HTTP status code will be 200.
-If there was an error with your data the status code will be 400. Please look at the value for "statusDetails" to indentify the problem.
-If there was a problem with our server or database the status code will be 500. Contact the support and report this problem.
 
-    + Body
-
-            {
-            "status": 1,
-            "statusDetails": "ok",
-            "info": "https://spamty.docs.apiary.io/#reference/encryption/encryption-v7",
-            "version": "v6",
-            "apiM": "20",
-            "urlPublic": "https://spamty.eu/mail/v6/20/YOURKEY/YOURIV/"
-            }
-
-    + Schema
-
-            {
-            "title": "Response /encryption API",
-            "type": "object",
-            "properties": {
-                "status": {
-                    "description": "Value 1 for OK and 0 if an error occurred.",
-                    "type": "integer"
-                },
-                "statusDetails": {
-                    "description": "A description if there were any errors. Otherwise the value is ok.",
-                    "type": "string"
-                },
-                "info": {
-                    "description": "The URL where you can get some additional information about the API.",
-                    "type": "string"
-                },
-                "version": {
-                    "description": "The version number.",
-                    "type": "string"
-                },
-                "apiM": {
-                    "description": "The m parameter for the decryption request.",
-                    "type": "integer"
-                },
-                "urlPublic": {
-                    "description": "The public decryption url with placeholders for key and iv from javascript encrytion.",
-                    "type": "string"
-                }
-            },
-            "required": ["status", "statusDetails", "info", "version"],
-            }
 
 
 ## Encryption v6 [/api/encryption/v6.php]
@@ -235,29 +197,7 @@ If there was any error the status code will be 400. Please look at the error cod
   + cleartext (empty string) - decrypted email address or text
   + mode (empty string) - either "email" or "text" mode
 
-+ Error 4801 (array)
-  + status (integer) - 4801
-  + statusDetails (string) - This link was invalid (m)
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 4802 (array)
-  + status (integer) - 4802
-  + statusDetails (string) - This link was invalid (k)
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 5801 (array)
-  + status (integer) - 5801
-  + statusDetails (string) - Problem when connecting to the database
-  + cleartext (empty string)
-  + mode (empty string)
-
-+ Error 5802 (array)
-  + status (integer) - 5802
-  + statusDetails (string) - We found no data in our database
-  + cleartext (empty string)
-  + mode (empty string)
++ for errors see above
 
 
 
